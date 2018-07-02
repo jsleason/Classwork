@@ -3,10 +3,10 @@ import { NavController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 
 @Component({
-    selector: 'page-login',
-    templateUrl: 'login.html'
+    selector: 'page-checkin',
+    templateUrl: 'checkin.html'
 })
-export class LoginPage {
+export class CheckinPage {
 
     constructor(public navCtrl: NavController) {
 

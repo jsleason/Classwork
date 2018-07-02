@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Events
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <h2 class="centered">Calendar</h2>
+    <iframe class="centered" src="https://calendar.google.com/calendar/embed?src=umich.edu_06sgmdi3nmv6d0hni9jdnrqdi4%40group.calendar.google.com&ctz=America%2FNew_York"
+      style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+    <h2>Featured Events</h2>
+    <button ion-item *ngFor="let event of eventlist" (click)="pull_event(event)">
+      {{event.name}}
+    </button>
+  </ion-list>
+
+</ion-content>

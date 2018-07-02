@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Get Involved
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    There are so many ways to get involved FTK, including as a UM student, alumnus, faculty member, sponsor, community partner,
+    volunteer, school, and family.
+
+    <ion-list inset>
+
+        <ion-item>
+            <div padding>
+                <button ion-button color="blue" (click)="navigateToRegistration()">Register</button>
+            </div>
+        </ion-item>
+
+        <ion-item>
+            <div padding>
+                <button ion-button color="blue" (click)="navigateToTherapies()">Volunteer at Therapies</button>
+            </div>
+        </ion-item>
+
+        <div padding>
+            <button ion-item *ngFor="let method of involvedlist" (click)="pull_involved(method)">
+                {{method.type}}
+            </button>
+        </div>
+
+    </ion-list>
+
+
+</ion-content>

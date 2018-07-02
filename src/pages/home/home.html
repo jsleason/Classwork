@@ -1,17 +1,20 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+      <button ion-button color="blue" (click)="navigateToCheckin()">Checkin</button>
+      <button ion-button color="blue" (click)="navigateToInvolved()">Get Involved</button>
+      <button ion-button color="blue" (click)="navigateToAbout()">About Us</button>
+      <button ion-button color="blue" (click)="navigateToEvents()">Events</button>
+      <button ion-button color="blue" (click)="navigateToFamilies()">Families</button>
+      <button ion-button color="blue" (click)="navigateToFundraising()">Fundraising</button>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  Welcome to Dance Marathon at the University of Michigan!
 
-  <ion-list inset>
-    <button ion-button color="secondary" (click)="navigateToLogin()">Login</button>
-    <button ion-button color="secondary" (click)="navigateToRegistration()">Registration</button>
-  </ion-list>
+  <h2>Welcome to Dance Marathon at the University of Michigan!</h2>
+
+  <h3>Live Twitter Feed</h3>
+  <ng4-twitter-timeline [dataSrc]="{sourceType: 'profile',screenName: 'DMatUM'}" [opts]="{tweetLimit: 4}"></ng4-twitter-timeline>
 
 </ion-content>

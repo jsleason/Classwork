@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            About Us
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <button ion-item *ngFor="let item of aboutlist" (click)="pull_about(item)">
+            {{item.section}}
+        </button>
+    </ion-list>
+
+    <ion-list inset>
+        <a href="https://dmum.donordrive.com/index.cfm?fuseaction=donorDrive.donate" class="ion-button" target="_blank">Donate!</a>
+    </ion-list>
+
+</ion-content>

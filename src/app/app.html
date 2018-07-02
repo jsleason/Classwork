@@ -1,1 +1,30 @@
 <ion-nav [root]="rootPage"></ion-nav>
+
+<ion-fab left bottom>
+    <button class="set-right-justified" ion-fab (click)="navigateToDonate()">Donate</button>
+</ion-fab>
+
+<ion-fab right bottom>
+
+    <button ion-fab color="light">
+        <ion-icon name="share"></ion-icon>
+    </button>
+
+    <ion-fab-list side="left">
+        <a ion-fab href="https://www.facebook.com/DMatUM/" target="_blank">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+
+
+
+        <a ion-fab href="https://www.instagram.com/dmatum/?hl=en" target="_blank">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+
+        <a ion-fab href="https://twitter.com/dmatum?lang=en" target="_blank">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+
+    </ion-fab-list>
+
+</ion-fab>
