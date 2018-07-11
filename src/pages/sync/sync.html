@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Sync Registration
+        </ion-title>
+        <button ion-button menuToggle class="icon">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    Welcome to the Checkin page!
+
+    <ion-list >
+
+        <ion-item>
+            <ion-label>Team:</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Name:</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Date:</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Umich Email:</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Phone Number:</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>UMID:</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <div padding>
+        <button ion-button color="blue" (click)="navigateToCheckin()">Return to Checkin</button>
+        <hr>
+        If your account does not exist, you may need to register.
+        <hr>
+        <button ion-button color="blue" (click)="navigateToRegistration()">Register</button>
+
+
+
+    </div>
+
+
+</ion-content>

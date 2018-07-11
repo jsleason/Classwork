@@ -1,32 +1,39 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            Get Involved
+            <h1>Get Involved</h1>
         </ion-title>
+        <button ion-button menuToggle class="icon">
+            <ion-icon name="menu"></ion-icon>
+        </button>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    There are so many ways to get involved FTK, including as a UM student, alumnus, faculty member, sponsor, community partner,
-    volunteer, school, and family.
+    <p>There are so many ways to get involved FTK, including as a UM student, alumnus, faculty member, sponsor, community partner,
+        volunteer, school, and family.</p>
+    <ion-row>
+        <ion-col>
+            <ion-item>
+                <div padding>
+                    <button ion-button color="blue" (click)="navigateToRegistration()">Register</button>
+                </div>
+            </ion-item>
+        </ion-col>
+        <ion-col>
+
+            <ion-item>
+                <div padding>
+                    <button ion-button color="blue" (click)="navigateToTherapies()">Volunteer at Therapies</button>
+                </div>
+            </ion-item>
+        </ion-col>
+    </ion-row>
 
     <ion-list inset>
-
-        <ion-item>
-            <div padding>
-                <button ion-button color="blue" (click)="navigateToRegistration()">Register</button>
-            </div>
-        </ion-item>
-
-        <ion-item>
-            <div padding>
-                <button ion-button color="blue" (click)="navigateToTherapies()">Volunteer at Therapies</button>
-            </div>
-        </ion-item>
-
         <div padding>
-            <button ion-item *ngFor="let method of involvedlist" (click)="pull_involved(method)">
-                {{method.type}}
+            <button padding ion-item *ngFor="let method of involvedlist" (click)="pull_involved(method)">
+                <p>{{method.type}}</p>
             </button>
         </div>
 

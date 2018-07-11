@@ -15,3 +15,84 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.modal {
+	width:50%;
+	height:50%;
+}
+
+// $font-family-display: Old Standard TT, sans-serif;
+// $font-family-text: Helvetica Neue, sans-serif;
+
+
+$color-blue: #002344 ;
+$color-maize: #efc00c ;
+
+h1 { color: $color-maize; 
+	font-family: Tienne, serif;
+	font-style: bold;
+	font-size: xx-large;}
+
+h2 { color: $color-blue; 
+	font-family: Old Standard TT, serif;
+	font-size: large;
+	font-style: bold;
+	text-decoration: underline;}
+
+h3 { color: $color-blue; 
+	font-family: Old Standard TT, sans-serif;
+	font-size: medium;
+	text-decoration: underline;}
+
+p { color: $color-blue;
+	font-family: Helvetica Neue, sans-serif;
+	font-size: small;}
+
+
+.maize-outline {
+	text-shadow:
+		-1px -1px $color-maize,
+		1px -1px $color-maize,
+		-1px 1px $color-maize,
+		1px 1px $color-maize;
+}
+
+.blue-outline {
+	text-shadow:
+		-1px -1px $color-blue,
+		1px -1px $color-blue,
+		-1px 1px $color-blue,
+		1px 1px $color-blue;
+}
+
+.button {
+	font-family: Old Standard TT, sans-serif;
+	text-align: center;
+	background-color: $color-blue;
+	border: 1px solid;
+	border-color: $color-maize;
+	padding: 1.25%;
+	color: $color-maize;
+	&:hover {
+		border-color: $color-blue;
+		color: $color-blue;
+		background-color: $color-maize;
+	}
+	font-size: medium;
+}
+
+.icon {
+	background-color: $color-maize;
+	color: $color-blue;
+	text-align: center;
+	&:hover {
+		color: $color-maize;
+		background: $color-blue;
+	}
+	font-size: small;
+}
+
+.embed{
+	align-self: center;
+	width: 5;
+}

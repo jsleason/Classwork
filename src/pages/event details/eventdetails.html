@@ -1,33 +1,36 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            {{title}}
+            <h1>{{title}}</h1>
         </ion-title>
+        <button ion-button menuToggle class="icon">
+            <ion-icon name="menu"></ion-icon>
+        </button>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-list-header>Date: </ion-list-header>
+    <ion-list-header><h3>Date: </h3></ion-list-header>
     <ion-item>
-        {{date}}
+       <p>{{date}}</p>
     </ion-item>
     <hr>
 
-    <ion-list-header>Time: </ion-list-header>
+    <ion-list-header><h3>Time: </h3></ion-list-header>
     <ion-item>
-        {{time}}
+        <p>{{time}}</p>
     </ion-item>
     <hr>
 
-    <ion-list-header>Location: </ion-list-header>
+    <ion-list-header><h3>Location: </h3></ion-list-header>
     <ion-item>
-        {{location}}
+        <p>{{location}}</p>
     </ion-item>
     <hr>
 
-    <ion-list-header>Description: </ion-list-header>
+    <ion-list-header><h3>Description: </h3></ion-list-header>
     <ion-item>
-        {{description}}
+        <p>{{description}}</p>
     </ion-item>
 
 </ion-content>

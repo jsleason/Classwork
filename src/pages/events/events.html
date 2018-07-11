@@ -1,21 +1,26 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Events
+      <h1>Events</h1>
     </ion-title>
+    <button ion-button menuToggle class="icon">
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
   <ion-list>
-    <h2 class="centered">Calendar</h2>
+    <h2 >Calendar</h2>
     <iframe class="centered" src="https://calendar.google.com/calendar/embed?src=umich.edu_06sgmdi3nmv6d0hni9jdnrqdi4%40group.calendar.google.com&ctz=America%2FNew_York"
       style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <hr>
+      <button ion-button color="blue" (click)="navigateToCheckin()">Event Checkin</button>
 
     <h2>Featured Events</h2>
     <button ion-item *ngFor="let event of eventlist" (click)="pull_event(event)">
-      {{event.name}}
+      <p>{{event.name}}</p>
     </button>
   </ion-list>
 

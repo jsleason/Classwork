@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Donate
+    </ion-title>
+    <button ion-button menuToggle class="icon">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list inset>
+
+    Name:
+    <ion-item>
+      <ion-input color="blue" type="text"></ion-input>
+    </ion-item>
+
+    Date:
+    <ion-item>
+      <ion-input color="blue" type="text"></ion-input>
+    </ion-item>
+
+    Processing Fee:
+    <ion-item>
+      <ion-select [(ngModel)]="processing" multiple="true">
+        <ion-option value="no">I would not like to cover processing costs (3.5% of donation amount)</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- <button ion-button color="blue" (click)="navigateToProcessing()">Click here to learn about processing!</button> -->
+
+    Enter your email below if you would like to receive the DMUM newsletter.
+    <ion-item>
+      <ion-input color="blue" type="text"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <hr> If you wish to donate another way, feel free to follow the link to donate
+  <a href="https://dmum.donordrive.com/index.cfm?fuseaction=donorDrive.donate" class="ion-button" target="_blank">here</a>
+  , or mail a check to DMUM at Suite 2450, 105 S. State Street, Ann Arbor MI, 48109.
+
+</ion-content>

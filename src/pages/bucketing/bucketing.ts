@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DonatePage } from '../donate/donate';
+import { BucketDonatePage } from '../bucketdonate/bucketdonate';
 
 @Component({
     selector: 'page-bucketing',
@@ -8,13 +8,15 @@ import { DonatePage } from '../donate/donate';
 })
 export class BucketingPage {
 
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController
+    ) {
     }
 
-    navigateToDonate() {
+    navigateToBucketDonate() {
         console.log("Navigating...");
-    
-        this.navCtrl.push(DonatePage);
-      }
+
+        this.navCtrl.push(BucketDonatePage);
+    }
+
 
 }

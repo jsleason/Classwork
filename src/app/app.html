@@ -1,28 +1,62 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mycontent">
+
+    <ion-content >
+        <h1>Menu</h1>
+        <ion-list>
+            <ion-item menuClose detail-none>
+                <button class="button" ion-button color="blue" (click)="navigateToCheckin()">Dancer Checkin</button>
+            </ion-item>
+            <ion-item menuClose detail-none>
+                <button class="button" ion-button color="blue" (click)="navigateToInvolved()">Get Involved</button>
+            </ion-item>
+            <ion-item menuClose detail-none>
+                <button class="button" ion-button color="blue" (click)="navigateToAbout()">About Us</button>
+            </ion-item>
+            <ion-item menuClose detail-none>
+                <button class="button" ion-button color="blue" (click)="navigateToEvents()">Events</button>
+            </ion-item>
+            <ion-item menuClose detail-none>
+                <button class="button" ion-button color="blue" (click)="navigateToFamilies()">Families & Therapies</button>
+            </ion-item>
+            <ion-item menuClose detail-none>
+                <button class="button" ion-button color="blue" (click)="navigateToFundraising()">Fundraising</button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
 
 <ion-fab left bottom>
-    <button class="set-right-justified" ion-fab (click)="navigateToDonate()">Donate</button>
+    <button ion-fab class="icon" (click)="presentDonateModal()">Donate</button>
 </ion-fab>
 
 <ion-fab right bottom>
 
-    <button ion-fab color="light">
+    <button class="icon" ion-fab color="light">
         <ion-icon name="share"></ion-icon>
     </button>
 
     <ion-fab-list side="left">
-        <a ion-fab href="https://www.facebook.com/DMatUM/" target="_blank">
+        <a class="icon" ion-fab href="https://www.facebook.com/DMatUM/" target="_blank">
             <ion-icon name="logo-facebook"></ion-icon>
         </a>
 
-
-
-        <a ion-fab href="https://www.instagram.com/dmatum/?hl=en" target="_blank">
+        <a class="icon" ion-fab href="https://www.instagram.com/dmatum/?hl=en" target="_blank">
             <ion-icon name="logo-instagram"></ion-icon>
         </a>
 
-        <a ion-fab href="https://twitter.com/dmatum?lang=en" target="_blank">
+        <a class="icon" ion-fab href="https://twitter.com/dmatum?lang=en" target="_blank">
             <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+
+        <a class="icon" ion-fab href="https://www.youtube.com/user/DanceMarathonAtUofM" target="_blank">
+            <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+
+        <a class="icon" ion-fab href="http://dmum.org/" target="_blank">
+            <ion-icon name="desktop"></ion-icon>
         </a>
 
     </ion-fab-list>

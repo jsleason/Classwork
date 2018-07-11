@@ -1,74 +1,77 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Donate
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-
-  <ion-list inset>
-
-    Name
-    <ion-item>
-      <ion-input color="blue" type="text"></ion-input>
-    </ion-item>
-
-    Email
-    <ion-item>
-      <ion-input color="blue" type="text"></ion-input>
-    </ion-item>
-
-    If you wish to support a specific dancer's fundraising efforts, please enter their name below.
-    <ion-item>
-      <ion-input color="blue" type="text"></ion-input>
-    </ion-item>
-
-    Select a payment type
-    <ion-item>
-      <ion-select [(ngModel)]="pay_schedule">
-        <ion-option value="once">One-Time</ion-option>
-        <ion-option value="monthly">Monthly</ion-option>
-      </ion-select>
-    </ion-item>
-
-    Processing Fee
-    <ion-item>
-      <ion-select [(ngModel)]="processing" multiple="true">
-        <ion-option value="no">I would not like to cover processing costs (3.5% of donation amount)</ion-option>
-      </ion-select>
-    </ion-item>
-
-    <button ion-button color="blue" (click)="navigateToProcessing()">Click here to learn about processing!</button>
-    <hr> What is your relation to DMUM?
-    <ion-item>
-      <ion-select [(ngModel)]="relation">
-        <ion-option value="dancer">Dancer</ion-option>
-        <ion-option value="alum">DMUM Alumni</ion-option>
-        <ion-option value="dmumfamily">DMUM Sponsored Family</ion-option>
-        <ion-option value="dancerfamily">Family of Dancer</ion-option>
-        <ion-option value="affiliate">Affiliate</ion-option>
-        <ion-option value="student">Current UM Student</ion-option>
-        <ion-option value="staff">UM Staff</ion-option>
-        <ion-option value="other">Other</ion-option>
-      </ion-select>
-    </ion-item>
-
-    Enter your email below if you would like to receive the DMUM newsletter.
-    <ion-item>
-      <ion-input color="blue" type="text"></ion-input>
-    </ion-item>
-
-    If this gift is matching eligible, please enter the employer name below.
-    <ion-item>
-      <ion-input color="blue" type="text"></ion-input>
-    </ion-item>
-
-  </ion-list>
-
-  <hr> If you wish to donate another way, feel free to follow the link to donate
-  <a href="https://dmum.donordrive.com/index.cfm?fuseaction=donorDrive.donate" class="ion-button" target="_blank">here</a>
-  , or mail a check to DMUM at Suite 2450, 105 S. State Street, Ann Arbor MI, 48109.
-
-</ion-content>
+    <ion-navbar>
+      <ion-title>
+        <h1>Donate</h1>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-fab right top>
+    <button ion-fab class="icon" (click)="this.navCtrl.pop()">
+      <ion-icon item-right name="ios-close-outline"></ion-icon>
+    </button>
+  
+  </ion-fab>
+  
+  <ion-content padding>
+  
+    <ion-list inset>
+  
+      <h3>Name:</h3>
+      <ion-item>
+        <ion-input color="blue" type="text"></ion-input>
+      </ion-item>
+  
+      <h3>Email:</h3>
+      <ion-item>
+        <ion-input color="blue" type="text"></ion-input>
+      </ion-item>
+  
+      <h3>If you wish to support a specific dancer's fundraising efforts, please enter their name below.</h3>
+      <ion-item>
+        <ion-input color="blue" type="text"></ion-input>
+      </ion-item>
+  
+      <h3>Processing Fee</h3>
+      <ion-item>
+        <ion-select [(ngModel)]="processing" multiple="true">
+          <ion-option value="no">I would not like to cover processing costs (3.5% of donation amount)</ion-option>
+        </ion-select>
+      </ion-item>
+  
+      <!-- <button ion-button color="blue" (click)="navigateToProcessing()">Click here to learn about processing!</button> -->
+      <hr>
+      <h3>What is your relation to DMUM?</h3>
+      <ion-item>
+          <ion-select [(ngModel)]="relation" >
+              <ion-option *ngFor="let relation of relationlist" value={{relation.relationId}}>{{relation.type}}</ion-option>
+          </ion-select>
+      </ion-item>
+  
+      <h3>Enter your email below if you would like to receive the DMUM newsletter.</h3>
+      <ion-item>
+        <ion-input color="blue" type="text"></ion-input>
+      </ion-item>
+  
+      <h3>If this gift is matching eligible, please enter the employer name below.</h3>
+      <ion-item>
+        <ion-input color="blue" type="text"></ion-input>
+      </ion-item>
+  
+      <h3>If this is related to a specific event fundraising, please select event below.</h3>
+      <ion-item>
+          <ion-select [(ngModel)]="event" >
+              <ion-option *ngFor="let event of eventlist" value={{event.eventId}}>{{event.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+  
+    </ion-list>
+  
+    <hr>
+    <p>
+      If you wish to donate another way, feel free to follow the link to donate
+      <a href="https://dmum.donordrive.com/index.cfm?fuseaction=donorDrive.donate" class="ion-button" target="_blank">here</a>
+      , or mail a check to DMUM at Suite 2450, 105 S. State Street, Ann Arbor MI, 48109.
+    </p>
+  
+  </ion-content>
