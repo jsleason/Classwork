@@ -1,20 +1,75 @@
 <ion-header>
-  <ion-navbar>
-      <button ion-button color="blue" (click)="navigateToCheckin()">Checkin</button>
-      <button ion-button color="blue" (click)="navigateToInvolved()">Get Involved</button>
-      <button ion-button color="blue" (click)="navigateToAbout()">About Us</button>
-      <button ion-button color="blue" (click)="navigateToEvents()">Events</button>
-      <button ion-button color="blue" (click)="navigateToFamilies()">Families</button>
-      <button ion-button color="blue" (click)="navigateToFundraising()">Fundraising</button>
-
-  </ion-navbar>
+  <ion-title>
+    <h1 class="blue-outline">Welcome to Dance Marathon at the University of Michigan!</h1>
+  </ion-title>
+  <button ion-button menuToggle class="icon">
+    <ion-icon name="menu"></ion-icon>
+  </button>
 </ion-header>
 
 <ion-content padding>
 
-  <h2>Welcome to Dance Marathon at the University of Michigan!</h2>
+  <h2>Quick Links</h2>
+  <button ion-button class="button" (click)="navigateToCheckin()">Event Checkin</button>
+  <button ion-button class="button" (click)="navigateToBucketing()">Bucketing Resources</button>
+  <button ion-button class="button" (click)="navigateToRegistration()">Register</button>
 
-  <h3>Live Twitter Feed</h3>
-  <ng4-twitter-timeline [dataSrc]="{sourceType: 'profile',screenName: 'DMatUM'}" [opts]="{tweetLimit: 4}"></ng4-twitter-timeline>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3>Check out our Blog</h3>
+        <a class="icon" ion-fab href="http://dmum.org/?page_id=2001" target="_blank">
+          <ion-icon name="logo-wordpress"></ion-icon>
+        </a>
+      </ion-col>
+      <ion-col>
+        <h3>Check out our web store </h3>
+        <a class="icon" ion-fab href="https://shop.undergroundshirts.com/collections/dmum" target="_blank">
+          <ion-icon name="cart"></ion-icon>
+        </a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h2>Pages</h2>
+  <button ion-button class="button" (click)="navigateToAbout()">About Us</button>
+  <button ion-button class="button" (click)="navigateToFamilies()">Families & Therapies</button>
+  <button ion-button class="button" (click)="navigateToInvolved()">Get Involved</button>
+  <button ion-button class="button" (click)="navigateToFundraising()">Fundraising</button>
+  <button ion-button class="button" (click)="navigateToEvents()">Events</button>
+  <hr>
+
+  <ion-grid>
+    <ion-row>
+      <h2>Current Promotions</h2>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col>
+          <h3>Sponsorship Promotions</h3>
+        <ion-list>
+          <ion-item *ngFor="let promo of sponsorPromos">
+            <a href="{{promo.link}}" target="_blank">{{promo.title}}</a>
+            <p>Code: {{promo.code}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col>
+          <h3>Registration Promotions</h3>
+        <ion-list>
+          <ion-item *ngFor="let promo of registrationPromos">
+            <h4>{{promo.title}}</h4>
+            <p>{{promo.description}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      
+    </ion-row>
+
+  </ion-grid>
+
+  <ng4-twitter-timeline class="embed" [dataSrc]="{sourceType: 'profile',screenName: 'DMatUM'}" [opts]="{tweetLimit: 4}"></ng4-twitter-timeline>
 
 </ion-content>

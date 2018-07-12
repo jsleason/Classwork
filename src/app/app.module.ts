@@ -3,7 +3,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib/index';
+import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -41,13 +42,14 @@ import { BucketingPage } from '../pages/bucketing/bucketing';
     InvolvedDetailsPage,
     FamiliesPage,
     FundraisingPage,
-    BucketingPage
+    BucketingPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    Ng4TwitterTimelineModule
-  ],
+    Ng4TwitterTimelineModule,
+    HttpModule
+    ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -67,7 +69,7 @@ import { BucketingPage } from '../pages/bucketing/bucketing';
     FamiliesPage,
     FundraisingPage,
     BucketingPage
-    ],
+      ],
   providers: [
     StatusBar,
     SplashScreen,
