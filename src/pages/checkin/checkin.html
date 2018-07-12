@@ -12,16 +12,12 @@
 <ion-content padding>
 
     <ion-list>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
         <ion-item>
             <ion-label>
                 <h3>Event</h3>
             </ion-label>
-            <ion-select [(ngModel)]="event" >
+            <ion-select [(ngModel)]="event">
                 <ion-option *ngFor="let event of eventlist" value={{event.eventId}}>{{event.name}}</ion-option>
             </ion-select>
         </ion-item>
@@ -51,15 +47,6 @@
         <hr>
         <!-- <button ion-button color="blue" (click)="navigateToSync()">Sync Registration</button> -->
         <button ion-button color="blue" (click)="navigateToRegistration()">Register</button>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Stashed changes
-
-    </div>
->>>>>>> eda654e83c7cffadf4dbabaf2119bbfb97609222
-
     </div>
 
 </ion-content>

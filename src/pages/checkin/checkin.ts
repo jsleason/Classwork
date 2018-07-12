@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular/umd';
+import { NavController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { RegistrationPage } from '../registration/registration';
 //import { SyncPage } from '../sync/sync';
