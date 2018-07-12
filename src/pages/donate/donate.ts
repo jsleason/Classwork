@@ -4,23 +4,12 @@ import { ProcessingPage } from '../processing/processing';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { errorHandler } from '@angular/platform-browser/src/browser';
-<<<<<<< Updated upstream
-=======
 import { NgForm } from '@angular/forms';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'page-donate',
   templateUrl: 'donate.html'
 })
-<<<<<<< Updated upstream
-export class DonatePage {
- 
-  public eventlist: Array<Event>;
-  public relationlist: Array<any>;
-
-  constructor(public navCtrl: NavController, public http: Http) {
-=======
 export class DonatePage implements AfterViewInit, OnDestroy {
  @ViewChild('cardInfo') cardInfo: ElementRef;
 
@@ -32,7 +21,6 @@ export class DonatePage implements AfterViewInit, OnDestroy {
   error: string;
 
   constructor(public navCtrl: NavController, public http: Http, private cd: ChangeDetectorRef) {
->>>>>>> Stashed changes
 
     this.http
     .get("http://localhost:3000/allEvents")
