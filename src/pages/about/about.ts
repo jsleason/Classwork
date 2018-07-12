@@ -33,4 +33,13 @@ export class AboutPage {
 
   }
 
+<<<<<<< Updated upstream
+=======
+  pull_about(event) {
+    // this.navCtrl.push(AboutDetailsPage, {
+    //   data: event
+    // });
+  }
+
+>>>>>>> Stashed changes
 }

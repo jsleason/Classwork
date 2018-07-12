@@ -83,5 +83,22 @@ export class MyApp {
     donateModal.present();
   }
 
+  navigateToFamilies() {
+    console.log("Navigating...");
+
+    this.navCtrl.push(FamiliesPage);
+  }
+
+  navigateToFundraising() {
+    console.log("Navigating...");
+
+    this.navCtrl.push(FundraisingPage);
+  }
+
+  presentDonateModal() {
+    let donateModal = this.modalCtrl.create(DonatePage);
+    donateModal.present();
+  }
+
 }
 

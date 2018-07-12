@@ -14,4 +14,9 @@ export class BucketingPage {
 }
 //=======
 
+<<<<<<< Updated upstream
         console.log("Navigating...");
+=======
+
+}
+>>>>>>> Stashed changes
