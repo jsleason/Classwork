@@ -4,6 +4,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ModalController, NavParams } from 'ionic-angular';
 
+// import { CheckinPage } from '../pages/checkin/checkin';
+// import { InvolvedPage } from '../pages/involved/involved';
+// import { AboutPage } from '../pages/about/about';
+// import { EventsPage } from '../pages/events/events';
+// import { DonatePage } from '../pages/donate/donate';
+// import { FamiliesPage } from '../pages/families/families';
+// import { FundraisingPage } from '../pages/fundraising/fundraising';
 import { HomePage } from '../pages/home/home';
 import { DonatePage } from '../pages/donate/donate';
 
@@ -58,8 +65,6 @@ export class MyApp {
   navigateToDonate() {
     console.log("Navigating...");
 
-    this.navCtrl.push(DonatePage);
-  }
 
   navigateToFamilies() {
     console.log("Navigating...");

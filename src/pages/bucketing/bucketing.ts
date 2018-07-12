@@ -10,4 +10,8 @@ export class BucketingPage {
     constructor(public navCtrl: NavController
     ) {
     }
+//<<<<<<< HEAD
 }
+//=======
+
+        console.log("Navigating...");
