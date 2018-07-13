@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 @Component({
     selector: 'page-involveddetails',
@@ -17,4 +18,10 @@ export class InvolvedDetailsPage {
         this.first = this.navParams.get("data").section1;
         this.second = this.navParams.get("data").section2;
     }
+
+    navigateToHome(){
+        console.log("Navigating...");
+      
+        this.navCtrl.push(HomePage);
+      }
 }

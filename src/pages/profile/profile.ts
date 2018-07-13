@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CheckinPage } from '../checkin/checkin';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-profile',
@@ -26,6 +27,12 @@ export class ProfilePage {
     console.log("Navigating...");
 
     this.navCtrl.push(CheckinPage);
+  }
+
+  navigateToHome(){
+    console.log("Navigating...");
+  
+    this.navCtrl.push(HomePage);
   }
 
 }

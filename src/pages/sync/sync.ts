@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CheckinPage } from '../checkin/checkin';
 import { RegistrationPage } from '../registration/registration';
+import { HomePage } from '../home/home';
 
 @Component({
     selector: 'page-sync',
@@ -24,5 +25,11 @@ export class SyncPage {
 
         this.navCtrl.push(CheckinPage);
     }
+
+    navigateToHome(){
+        console.log("Navigating...");
+      
+        this.navCtrl.push(HomePage);
+      }
 
 }

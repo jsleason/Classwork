@@ -5,6 +5,7 @@ import { CheckinPage } from '../checkin/checkin';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { errorHandler } from '@angular/platform-browser/src/browser';
+import { HomePage } from '../home/home';
 
 export class Event {
 
@@ -69,4 +70,10 @@ export class EventsPage {
 
         this.navCtrl.push(CheckinPage);
     }
+
+    navigateToHome(){
+        console.log("Navigating...");
+      
+        this.navCtrl.push(HomePage);
+      }
 }

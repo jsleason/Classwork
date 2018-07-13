@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AboutDetailsPage } from '../about details/adetails';
+import { HomePage } from '../home/home';
 
 export class About {
 
@@ -37,6 +38,12 @@ export class AboutPage {
     this.navCtrl.push(AboutDetailsPage, {
       data: event
     });
+  }
+
+  navigateToHome(){
+    console.log("Navigating...");
+  
+    this.navCtrl.push(HomePage);
   }
 
 }

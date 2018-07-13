@@ -17,7 +17,6 @@ import { TherapiesPage } from '../pages/therapies/therapies';
 import { EventsPage } from '../pages/events/events';
 import { EventDetailsPage } from '../pages/event details/eventdetails';
 import { DonatePage } from '../pages/donate/donate';
-import { ProcessingPage } from '../pages/processing/processing';
 import { InvolvedPage } from '../pages/involved/involved';
 import { AboutDetailsPage } from '../pages/about details/adetails';
 import { InvolvedDetailsPage } from '../pages/involved details/involveddetails';
@@ -38,7 +37,6 @@ import { SyncPage } from '../pages/sync/sync';
     EventsPage,
     EventDetailsPage,
     DonatePage,
-    ProcessingPage,
     InvolvedPage,
     AboutDetailsPage,
     InvolvedDetailsPage,
@@ -66,7 +64,6 @@ import { SyncPage } from '../pages/sync/sync';
     EventsPage,
     EventDetailsPage,
     DonatePage,
-    ProcessingPage,
     InvolvedPage,
     AboutDetailsPage,
     InvolvedDetailsPage,

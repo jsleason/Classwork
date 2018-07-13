@@ -1,10 +1,10 @@
 import { Component, ViewChild, AfterViewInit, OnDestroy, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ProcessingPage } from '../processing/processing';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { errorHandler } from '@angular/platform-browser/src/browser';
 import { NgForm } from '@angular/forms';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-donate',
@@ -57,12 +57,6 @@ export class DonatePage implements AfterViewInit, OnDestroy {
 
   }
 
-  navigateToProcessing() {
-    console.log("Navigating...");
-
-    this.navCtrl.push(ProcessingPage);
-  }
-
   ngAfterViewInit() {
       this.card = elements.create('card');
       this.card.mount(this.cardInfo.nativeElement);
@@ -113,6 +107,12 @@ export class DonatePage implements AfterViewInit, OnDestroy {
             console.log(err);
         }
     );
+  }
+
+  navigateToHome(){
+    console.log("Navigating...");
+  
+    this.navCtrl.push(HomePage);
   }
 
 }

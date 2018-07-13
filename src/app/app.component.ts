@@ -90,5 +90,11 @@ export class MyApp {
     donateModal.present();
   }
 
+  navigateToHome(){
+    console.log("Navigating...");
+  
+    this.navCtrl.push(HomePage);
+  }
+
 }
 

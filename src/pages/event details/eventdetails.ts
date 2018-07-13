@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { errorHandler } from '@angular/platform-browser/src/browser';
+import { HomePage } from '../home/home';
 
 @Component({
     selector: 'page-eventdetails',
@@ -24,4 +25,10 @@ export class EventDetailsPage {
         this.location = this.navParams.get("data").location;
         this.description = this.navParams.get("data").description;
      }
+
+     navigateToHome(){
+        console.log("Navigating...");
+      
+        this.navCtrl.push(HomePage);
+      }
  }

@@ -111,5 +111,11 @@ navigateToRegistration() {
 
   this.navCtrl.push(RegistrationPage);
 }
+
+navigateToHome(){
+  console.log("Navigating...");
+
+  this.navCtrl.push(HomePage);
+}
   
 }

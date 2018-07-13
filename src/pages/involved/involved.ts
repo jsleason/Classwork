@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { RegistrationPage } from '../registration/registration';
 import { TherapiesPage } from '../therapies/therapies';
 import { InvolvedDetailsPage } from '../involved details/involveddetails';
+import { HomePage } from '../home/home';
 
 export class Involved {
 
@@ -51,4 +52,10 @@ export class InvolvedPage {
             data: event
         });
     }
+
+    navigateToHome(){
+        console.log("Navigating...");
+      
+        this.navCtrl.push(HomePage);
+      }
 }

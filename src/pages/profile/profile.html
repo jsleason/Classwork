@@ -1,15 +1,14 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      <h1>{{event}}</h1>
-    </ion-title>
-    <button ion-button menuToggle class="icon">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-navbar>
+    <ion-fab left top>
+        <button padding ion-button menuToggle class="icon">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-fab>
+    <img src="http://dmum.org/wp-content/uploads/2018/05/PlainRectangle3-1.jpg" (click)="navigateToHome()">
 </ion-header>
 
 <ion-content padding>
+  <h1>{{event}}</h1>>
 <h2>{{Team}}</h2>
 
   <h2>Announcements</h2>

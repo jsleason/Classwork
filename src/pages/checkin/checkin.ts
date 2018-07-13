@@ -4,6 +4,7 @@ import { ProfilePage } from '../profile/profile';
 import { RegistrationPage } from '../registration/registration';
 //import { SyncPage } from '../sync/sync';
 import { Http } from '@angular/http';
+import { HomePage } from '../home/home';
 //import 'rxjs/add/operator/map';
 //import { errorHandler } from '@angular/platform-browser/src/browser';
 
@@ -114,5 +115,11 @@ export class CheckinPage {
             teamdata: item
         });
     }
+
+    navigateToHome(){
+        console.log("Navigating...");
+      
+        this.navCtrl.push(HomePage);
+      }
 
 }

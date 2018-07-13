@@ -1,19 +1,17 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>
-            <h1>About Us</h1>
-        </ion-title>
-        <button ion-button menuToggle class="icon">
+    <ion-fab left top>
+        <button padding ion-button menuToggle class="icon">
             <ion-icon name="menu"></ion-icon>
         </button>
-    </ion-navbar>
+    </ion-fab>
+    <img src="http://dmum.org/wp-content/uploads/2018/05/PlainRectangle3-1.jpg" (click)="navigateToHome()">
 </ion-header>
 
 <ion-content padding>
-
+    <h1>About Us</h1>
     <ion-list>
         <button ion-item *ngFor="let item of aboutlist" (click)="pull_about(item)">
-           <p>{{item.section}}</p> 
+            <p>{{item.section}}</p>
         </button>
     </ion-list>
 

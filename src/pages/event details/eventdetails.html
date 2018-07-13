@@ -1,34 +1,42 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>
-            <h1>{{title}}</h1>
-        </ion-title>
-        <button ion-button menuToggle class="icon">
+    <ion-fab left top>
+        <button padding ion-button menuToggle class="icon">
             <ion-icon name="menu"></ion-icon>
         </button>
-    </ion-navbar>
+    </ion-fab>
+    <img src="http://dmum.org/wp-content/uploads/2018/05/PlainRectangle3-1.jpg" (click)="navigateToHome()">
 </ion-header>
 
 <ion-content padding>
-    <ion-list-header><h3>Date: </h3></ion-list-header>
+
+    <h1>{{title}}</h1>
+    <ion-list-header>
+        <h3>Date: </h3>
+    </ion-list-header>
     <ion-item>
-       <p>{{date}}</p>
+        <p>{{date}}</p>
     </ion-item>
     <hr>
 
-    <ion-list-header><h3>Time: </h3></ion-list-header>
+    <ion-list-header>
+        <h3>Time: </h3>
+    </ion-list-header>
     <ion-item>
         <p>{{time}}</p>
     </ion-item>
     <hr>
 
-    <ion-list-header><h3>Location: </h3></ion-list-header>
+    <ion-list-header>
+        <h3>Location: </h3>
+    </ion-list-header>
     <ion-item>
         <p>{{location}}</p>
     </ion-item>
     <hr>
 
-    <ion-list-header><h3>Description: </h3></ion-list-header>
+    <ion-list-header>
+        <h3>Description: </h3>
+    </ion-list-header>
     <ion-item>
         <p>{{description}}</p>
     </ion-item>
