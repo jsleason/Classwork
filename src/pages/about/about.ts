@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-//import { AboutDetailsPage } from '../about details/adetails';
+import { AboutDetailsPage } from '../about details/adetails';
 
 export class About {
 
@@ -34,9 +34,9 @@ export class AboutPage {
   }
 
   pull_about(event) {
-    // this.navCtrl.push(AboutDetailsPage, {
-    //   data: event
-    // });
+    this.navCtrl.push(AboutDetailsPage, {
+      data: event
+    });
   }
 
 }

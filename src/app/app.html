@@ -1,6 +1,6 @@
 <ion-menu [content]="mycontent">
 
-    <ion-content >
+    <ion-content>
         <h1>Menu</h1>
         <ion-list>
             <ion-item menuClose detail-none>
@@ -21,8 +21,16 @@
             <ion-item menuClose detail-none>
                 <button class="button" ion-button color="blue" (click)="navigateToFundraising()">Fundraising</button>
             </ion-item>
+            <ion-item menuClose detail-none>
+                <button ion-button class="button" (click)="navigateToBucketing()">Bucketing</button>
+            </ion-item>
         </ion-list>
     </ion-content>
+
+    <ion-footer>
+        
+    </ion-footer>
+
 </ion-menu>
 
 

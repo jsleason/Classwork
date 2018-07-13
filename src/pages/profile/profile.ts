@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { CheckinPage } from '../checkin/checkin';
 
 @Component({
@@ -8,8 +8,18 @@ import { CheckinPage } from '../checkin/checkin';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController) {
+  public team: string;
+  public event: string;
+  public name: string;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    if (this.navParams.get("teamdata")) {
+      this.team = this.navParams.get("teamdata").name;
+    }
+
+    if (this.navParams.get("eventdata")) {
+      this.event = this.navParams.get("eventdata").name;
+    }
   }
 
   navigateToCheckin() {

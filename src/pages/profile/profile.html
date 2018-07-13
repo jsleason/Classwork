@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <h1>Event Profile</h1>
+      <h1>{{event}}</h1>
     </ion-title>
     <button ion-button menuToggle class="icon">
       <ion-icon name="menu"></ion-icon>
@@ -10,9 +10,10 @@
 </ion-header>
 
 <ion-content padding>
-  This is the profile.
+<h2>{{Team}}</h2>
+
+  <h2>Announcements</h2>
 
   <button ion-button color="blue" (click)="navigateToCheckin()">Check out</button>
-
 
 </ion-content>

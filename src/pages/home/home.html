@@ -9,10 +9,10 @@
 
 <ion-content padding>
 
-  <h2>Quick Links</h2>
+  <!-- <h2>Quick Links</h2>
   <button ion-button class="button" (click)="navigateToCheckin()">Event Checkin</button>
   <button ion-button class="button" (click)="navigateToBucketing()">Bucketing Resources</button>
-  <button ion-button class="button" (click)="navigateToRegistration()">Register</button>
+  <button ion-button class="button" (click)="navigateToRegistration()">Register</button> -->
 
   <ion-grid>
     <ion-row>
@@ -31,14 +31,6 @@
     </ion-row>
   </ion-grid>
 
-  <h2>Pages</h2>
-  <button ion-button class="button" (click)="navigateToAbout()">About Us</button>
-  <button ion-button class="button" (click)="navigateToFamilies()">Families & Therapies</button>
-  <button ion-button class="button" (click)="navigateToInvolved()">Get Involved</button>
-  <button ion-button class="button" (click)="navigateToFundraising()">Fundraising</button>
-  <button ion-button class="button" (click)="navigateToEvents()">Events</button>
-  <hr>
-
   <ion-grid>
     <ion-row>
       <h2>Current Promotions</h2>
@@ -47,7 +39,7 @@
     <ion-row>
 
       <ion-col>
-          <h3>Sponsorship Promotions</h3>
+        <h3>Sponsorship Promotions</h3>
         <ion-list>
           <ion-item *ngFor="let promo of sponsorPromos">
             <a href="{{promo.link}}" target="_blank">{{promo.title}}</a>
@@ -57,7 +49,7 @@
       </ion-col>
 
       <ion-col>
-          <h3>Registration Promotions</h3>
+        <h3>Registration Promotions</h3>
         <ion-list>
           <ion-item *ngFor="let promo of registrationPromos">
             <h4>{{promo.title}}</h4>
@@ -65,11 +57,11 @@
           </ion-item>
         </ion-list>
       </ion-col>
-      
+
     </ion-row>
 
   </ion-grid>
 
-  <ng4-twitter-timeline class="embed" [dataSrc]="{sourceType: 'profile',screenName: 'DMatUM'}" [opts]="{tweetLimit: 4}"></ng4-twitter-timeline>
+  <ng4-twitter-timeline class="box" [dataSrc]="{sourceType: 'profile',screenName: 'DMatUM'}" [opts]="{tweetLimit: 3}"></ng4-twitter-timeline>
 
 </ion-content>

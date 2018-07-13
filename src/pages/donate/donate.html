@@ -1,89 +1,76 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title>
-        <h1>Donate</h1>
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-fab right top>
-    <button ion-fab class="icon" (click)="this.navCtrl.pop()">
-      <ion-icon item-right name="ios-close-outline"></ion-icon>
-    </button>
-  
-  </ion-fab>
-  
-  <ion-content padding>
-  
-    <ion-list inset>
-  
-      <h3>Name:</h3>
-      <ion-item>
-        <ion-input color="blue" type="text"></ion-input>
-      </ion-item>
-  
-      <h3>Email:</h3>
-      <ion-item>
-        <ion-input color="blue" type="text"></ion-input>
-      </ion-item>
-  
-      <h3>If you wish to support a specific dancer's fundraising efforts, please enter their name below.</h3>
-      <ion-item>
-        <ion-input color="blue" type="text"></ion-input>
-      </ion-item>
-  
-      <h3>Processing Fee</h3>
-      <ion-item>
-        <ion-select [(ngModel)]="processing" multiple="true">
-          <ion-option value="no">I would not like to cover processing costs (3.5% of donation amount)</ion-option>
-        </ion-select>
-      </ion-item>
-  
-      <!-- <button ion-button color="blue" (click)="navigateToProcessing()">Click here to learn about processing!</button> -->
-      <hr>
-      <h3>What is your relation to DMUM?</h3>
-      <ion-item>
-          <ion-select [(ngModel)]="relation" >
-              <ion-option *ngFor="let relation of relationlist" value={{relation.relationId}}>{{relation.type}}</ion-option>
-          </ion-select>
-      </ion-item>
-  
-      <h3>Enter your email below if you would like to receive the DMUM newsletter.</h3>
-      <ion-item>
-        <ion-input color="blue" type="text"></ion-input>
-      </ion-item>
-  
-      <h3>If this gift is matching eligible, please enter the employer name below.</h3>
-      <ion-item>
-        <ion-input color="blue" type="text"></ion-input>
-      </ion-item>
-  
-      <h3>If this is related to a specific event fundraising, please select event below.</h3>
-      <ion-item>
-          <ion-select [(ngModel)]="event" >
-              <ion-option *ngFor="let event of eventlist" value={{event.eventId}}>{{event.name}}</ion-option>
-          </ion-select>
-      </ion-item>
-  
-    </ion-list>
-  
-    <!-- credit card donation - stripe integration -->
+  <ion-navbar>
+    <ion-title>
+      <h1>Donate</h1>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
-    <form #checkout="ngForm" (ngSubmit)="onSubmit(checkout)" class="checkout">
-      <div class="form-row">
-        <label for="card-info">Card Info</label>
-        <div id="card-info" #cardInfo></div>
-        <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
-      </div>
+<ion-fab right top>
+  <button ion-fab class="icon" (click)="this.navCtrl.pop()">
+    <ion-icon item-right name="ios-close-outline"></ion-icon>
+  </button>
 
-      <button type="submit">Pay Donation Amount</button>
-    </form>
+</ion-fab>
 
+<ion-content padding>
 
-    <p>
-      If you wish to donate another way, feel free to follow the link to donate
-      <a href="https://dmum.donordrive.com/index.cfm?fuseaction=donorDrive.donate" class="ion-button" target="_blank">here</a>
-      , or mail a check to DMUM at Suite 2450, 105 S. State Street, Ann Arbor MI, 48109.
-    </p>
-  
-  </ion-content>
+  <ion-list inset>
+
+    <h3>Name:</h3>
+    <ion-item>
+      <ion-input [(ngModel)]="name" color="blue" type="text"></ion-input>
+    </ion-item>
+
+    <h3>Email:</h3>
+    <ion-item>
+      <ion-input [(ngModel)]="email" color="blue" type="text"></ion-input>
+    </ion-item>
+
+    <h3>If you wish to support a specific dancer's fundraising efforts, please enter their name below.</h3>
+    <ion-item>
+      <ion-input [(ngModel)]="dancer" color="blue" type="text"></ion-input>
+    </ion-item>
+
+    <!-- <button ion-button color="blue" (click)="navigateToProcessing()">Click here to learn about processing!</button> -->
+    <hr>
+    <h3>What is your relation to DMUM?</h3>
+    <ion-item>
+      <ion-select [(ngModel)]="relation">
+        <ion-option *ngFor="let relation of relationlist" value="{{relation.relationId}}">{{relation.type}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <h3>If this is related to a specific event fundraising, please select event below.</h3>
+    <ion-item>
+      <ion-select [(ngModel)]="event">
+        <ion-option *ngFor="let event of eventlist" value="{{event.eventId}}">{{event.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <h3>Donation Amount:</h3>
+    <ion-item>
+      <ion-input [(ngModel)]="amount" color="blue" type="text"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- credit card donation - stripe integration -->
+
+  <form #checkout="ngForm" (ngSubmit)="onSubmit(checkout)" class="checkout">
+    <div class="form-row">
+      <label for="card-info">Card Info</label>
+      <div id="card-info" #cardInfo></div>
+      <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
+    </div>
+    <button type="submit" (click)="donate()">Donate ${{amount}}</button>
+
+  </form>
+
+  <p>
+    If you wish to donate another way, feel free to follow the link to donate
+    <a href="https://dmum.donordrive.com/index.cfm?fuseaction=donorDrive.donate" class="ion-button" target="_blank">here</a>
+    , or mail a check to DMUM at Suite 2450, 105 S. State Street, Ann Arbor MI, 48109.
+  </p>
+
+</ion-content>

@@ -14,26 +14,42 @@ import { Http } from '@angular/http';
 })
 export class CheckinPage {
     public eventlist: Array<Event>;
-   // public event: Event;  // selected event?
+    public teamlist: Array<any>;
+    // public event: Event;  // selected event?
     public team: string;
     public name: string;
-    public userid: any;
+    public event: string;
+    public eventId: number;
+    public uniqname: any;
 
     posts: any;
     constructor(public navCtrl: NavController, public http: Http) {
         // gets events -> option list
         this.http
-        .get("http://localhost:3000/allEvents")
-        .subscribe(
-            result => {
-                console.log(result.json());
-                let data = result.json();
-                this.eventlist = data;
-            },
-            err => {
-                console.log(err);
-            }
-        );
+            .get("http://localhost:3000/allEvents")
+            .subscribe(
+                result => {
+                    console.log(result.json());
+                    let data = result.json();
+                    this.eventlist = data;
+                },
+                err => {
+                    console.log(err);
+                }
+            );
+
+        this.http
+            .get("http://localhost:3000/allTeams")
+            .subscribe(
+                result => {
+                    console.log(result.json());
+                    let data = result.json();
+                    this.teamlist = data;
+                },
+                err => {
+                    console.log(err);
+                }
+            );
     }
 
     navigateToProfile() {
@@ -59,7 +75,23 @@ export class CheckinPage {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
         this.http
+            .get("http://localhost:3000//participantUniqname")
+            .subscribe(
+                result => {
+                    console.log(result.json());
+                    let data = result.json();
+                    this.uniqname = data.uniqname;
+                },
+                err => {
+                    console.log(err);
+                }
+            );
+
+        this.http
             .post("http://localhost:3000/newCheckin", {
+                participantId: this.uniqname,
+                eventId: this.eventId,
+                
             })
             .subscribe(
                 result => {
@@ -70,4 +102,17 @@ export class CheckinPage {
                 }
             );
     }
+
+    pull_event(item) {
+        this.navCtrl.push(ProfilePage, {
+            eventdata: item
+        });
+    }
+
+    pull_team(item) {
+        this.navCtrl.push(ProfilePage, {
+            teamdata: item
+        });
+    }
+
 }

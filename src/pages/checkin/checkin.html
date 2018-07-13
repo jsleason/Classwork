@@ -15,10 +15,17 @@
 
         <ion-item>
             <ion-label>
-                <h3>Event</h3>
+                <h3>Name:</h3>
             </ion-label>
-            <ion-select [(ngModel)]="event">
-                <ion-option *ngFor="let event of eventlist" value={{event.eventId}}>{{event.name}}</ion-option>
+            <ion-input [(ngModel)]="name" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>
+                <h3>Event:</h3>
+            </ion-label>
+            <ion-select [(ngModel)]="eventId">
+                <ion-option *ngFor="let event of eventlist" value={{event.eventId}} (click)="pull_event(event)">{{event.name}}</ion-option>
             </ion-select>
         </ion-item>
 
@@ -26,25 +33,29 @@
             <ion-label>
                 <h3>Team:</h3>
             </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-select [(ngModel)]="team">
+                <ion-option *ngFor="let team of teamlist" value={{team.teamId}} (click)="pull_team(team)">{{team.name}}</ion-option>
+            </ion-select>
         </ion-item>
 
         <ion-item>
             <ion-label>
                 <h3>Uniqname:</h3>
+                <!-- if uniqname doesnt match id, throw an error -->
             </ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="uniqname" type="text"></ion-input>
         </ion-item>
 
     </ion-list>
 
     <div padding>
-        <button ion-button color="blue" (click)="navigateToProfile()">Go to event profile</button>
+        <button ion-button color="blue" (click)="navigateToProfile()" (click)="checkin()">Check in!</button>
+
+        <p>Checking in will take you to your team's event profile.</p>
         <hr>
         <p>
             If your account does not exist, you may need to register.
         </p>
-        <hr>
         <!-- <button ion-button color="blue" (click)="navigateToSync()">Sync Registration</button> -->
         <button ion-button color="blue" (click)="navigateToRegistration()">Register</button>
     </div>

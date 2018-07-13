@@ -10,13 +10,5 @@ export class BucketingPage {
     constructor(public navCtrl: NavController
     ) {
     }
-//<<<<<<< HEAD
-}
-//=======
-
-<<<<<<< Updated upstream
-        console.log("Navigating...");
-=======
 
 }
->>>>>>> Stashed changes

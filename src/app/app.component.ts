@@ -13,6 +13,8 @@ import { AboutPage } from '../pages/about/about';
 import { EventsPage } from '../pages/events/events';
 import { FamiliesPage } from '../pages/families/families';
 import { FundraisingPage } from '../pages/fundraising/fundraising';
+import { RegistrationPage } from '../pages/registration/registration';
+import { BucketingPage } from '../pages/bucketing/bucketing';
 
 @Component({
   templateUrl: 'app.html',
@@ -71,22 +73,17 @@ export class MyApp {
     this.navCtrl.push(FundraisingPage);
   }
 
-  presentDonateModal() {
-    let donateModal = this.modalCtrl.create(DonatePage);
-    donateModal.present();
-  }
-
-  navigateToFamilies() {
+  navigateToRegister() {
     console.log("Navigating...");
 
-    this.navCtrl.push(FamiliesPage);
+    this.navCtrl.push(RegistrationPage);
   }
 
-  navigateToFundraising() {
+  navigateToBucketing() {
     console.log("Navigating...");
 
-    this.navCtrl.push(FundraisingPage);
-  }
+    this.navCtrl.push(BucketingPage);
+}
 
   presentDonateModal() {
     let donateModal = this.modalCtrl.create(DonatePage);

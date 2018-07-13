@@ -15,6 +15,13 @@ export class DonatePage implements AfterViewInit, OnDestroy {
 
   public eventlist: Array<Event>;
   public relationlist: Array<any>;
+  
+  public name: string;
+  public dancer: string;
+  public relationId: any;
+  public email: string;
+  public eventId: any;
+  public amount: number;
 
   card: any;
   cardHandler = this.onChange.bind(this);
@@ -86,6 +93,26 @@ export class DonatePage implements AfterViewInit, OnDestroy {
           console.log('Success!', token);
           //send the token to your backend to process the charge
       }
+  }
+
+  donate(){
+    this.http
+    .post("http://localhost:3000/newDonation", {
+            name: this.name,
+            dancer: this.dancer,
+            relationId: this.relationId,
+            news_email: this.email,
+            eventId: this.eventId,
+            amount: this.amount,
+        })
+    .subscribe(
+        result => {
+            console.log(result.json);
+        },
+        err => {
+            console.log(err);
+        }
+    );
   }
 
 }
