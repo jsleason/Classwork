@@ -16,23 +16,12 @@
 </ion-header>
 
 <ion-content padding>
-    <h1>{{event}}</h1>>
+    <p>Hi, {{name}}. Welcome to {{event}}!</p>
 
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <h2>{{Team}}</h2>
-            </ion-col>
-            <ion-col>
-                <h2>Announcements</h2>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <button ion-item *ngFor="let name of names">
-                <p>{{name}}</p>
-            </button>
-        </ion-row>
-    </ion-grid>
+    <p>We appreaciate all the work you and your team, {{Team}}, has done for DMUM.</p>
+
+    <h2>Announcements</h2>
+
 
 
 </ion-content>
