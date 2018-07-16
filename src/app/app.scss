@@ -27,6 +27,7 @@
 
 $color-blue: #002344 ;
 $color-maize: #efc00c ;
+$color-white: #FFFFFF;
 
 h1 { color: $color-maize; 
 	font-family: Tienne, serif;
@@ -102,4 +103,16 @@ p { color: $color-blue;
 	flex-direction: column;
 	margin-top: auto;
 	flex: 0 0 20%;
+}
+
+.menu-head{
+	background-image: url("http://dmum.org/wp-content/uploads/photo-gallery/imported_from_media_libray/thumb/Copy-of-DSC00869%20(2).jpg");
+}
+
+.background{
+	background-image: url("http://dmum.org/wp-content/uploads/photo-gallery/thumb/IMG_2461.jpg")
+}
+
+.white{
+	background-color: $color-white;
 }

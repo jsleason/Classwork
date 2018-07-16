@@ -12,6 +12,7 @@ export class ProfilePage {
   public team: string;
   public event: string;
   public name: string;
+  public names: Array<string>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     if (this.navParams.get("teamdata")) {
@@ -20,6 +21,15 @@ export class ProfilePage {
 
     if (this.navParams.get("eventdata")) {
       this.event = this.navParams.get("eventdata").name;
+    }
+
+    if (this.navParams.get("eventdata")) {
+      this.event = this.navParams.get("eventdata").name;
+    }
+
+    if (this.navParams.get("namedata")){
+      this.name = this.navParams.get("namedata").name;
+      this.names.push(name)
     }
   }
 

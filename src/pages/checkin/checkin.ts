@@ -102,6 +102,10 @@ export class CheckinPage {
                     console.log(err);
                 }
             );
+
+            this.navCtrl.push(ProfilePage, {
+                namedata: name
+            });
     }
 
     pull_event(item) {

@@ -17,10 +17,22 @@
 
 <ion-content padding>
     <h1>{{event}}</h1>>
-    <h2>{{Team}}</h2>
 
-    <h2>Announcements</h2>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h2>{{Team}}</h2>
+            </ion-col>
+            <ion-col>
+                <h2>Announcements</h2>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <button ion-item *ngFor="let name of names">
+                <p>{{name}}</p>
+            </button>
+        </ion-row>
+    </ion-grid>
 
-    <button ion-button color="blue" (click)="navigateToCheckin()">Check out</button>
 
 </ion-content>
