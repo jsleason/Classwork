@@ -96,3 +96,10 @@ p { color: $color-blue;
 	align-self: center;
 	width: 5;
 }
+
+.head{
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
+	flex: 0 0 20%;
+}

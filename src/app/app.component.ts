@@ -7,7 +7,6 @@ import { ModalController, NavParams } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
 import { DonatePage } from '../pages/donate/donate';
 
-import { CheckinPage } from '../pages/checkin/checkin';
 import { InvolvedPage } from '../pages/involved/involved';
 import { AboutPage } from '../pages/about/about';
 import { EventsPage } from '../pages/events/events';
@@ -15,6 +14,7 @@ import { FamiliesPage } from '../pages/families/families';
 import { FundraisingPage } from '../pages/fundraising/fundraising';
 import { RegistrationPage } from '../pages/registration/registration';
 import { BucketingPage } from '../pages/bucketing/bucketing';
+import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
 
 @Component({
   templateUrl: 'app.html',
@@ -36,7 +36,7 @@ export class MyApp {
   navigateToCheckin() {
     console.log("Navigating...");
 
-    this.navCtrl.push(CheckinPage);
+    this.navCtrl.push(CheckinHomePage);
   }
 
   navigateToInvolved() {

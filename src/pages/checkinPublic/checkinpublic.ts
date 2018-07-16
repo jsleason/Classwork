@@ -10,14 +10,12 @@ import { HomePage } from '../home/home';
 
 
 @Component({
-    selector: 'page-checkin',
-    templateUrl: 'checkin.html'
+    selector: 'page-checkinpublic',
+    templateUrl: 'checkinpublic.html'
 })
-export class CheckinPage {
+export class CheckinPublicPage {
     public eventlist: Array<Event>;
-    public teamlist: Array<any>;
     // public event: Event;  // selected event?
-    public team: string;
     public name: string;
     public event: string;
     public eventId: number;
@@ -33,19 +31,6 @@ export class CheckinPage {
                     console.log(result.json());
                     let data = result.json();
                     this.eventlist = data;
-                },
-                err => {
-                    console.log(err);
-                }
-            );
-
-        this.http
-            .get("http://localhost:3000/allTeams")
-            .subscribe(
-                result => {
-                    console.log(result.json());
-                    let data = result.json();
-                    this.teamlist = data;
                 },
                 err => {
                     console.log(err);
@@ -72,27 +57,15 @@ export class CheckinPage {
     //     this.navCtrl.push(SyncPage);
     // }
 
-    checkin() {
+    publicCheckin() {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
-        this.http
-            .get("http://localhost:3000//participantUniqname")
-            .subscribe(
-                result => {
-                    console.log(result.json());
-                    let data = result.json();
-                    this.uniqname = data.uniqname;
-                },
-                err => {
-                    console.log(err);
-                }
-            );
 
         this.http
             .post("http://localhost:3000/newPublicCheckin", {
                 participantId: this.uniqname,
                 eventId: this.eventId,
-                
+                name: this.name
             })
             .subscribe(
                 result => {
@@ -107,12 +80,6 @@ export class CheckinPage {
     pull_event(item) {
         this.navCtrl.push(ProfilePage, {
             eventdata: item
-        });
-    }
-
-    pull_team(item) {
-        this.navCtrl.push(ProfilePage, {
-            teamdata: item
         });
     }
 

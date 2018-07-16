@@ -24,6 +24,8 @@ import { FamiliesPage } from '../pages/families/families';
 import { FundraisingPage } from '../pages/fundraising/fundraising';
 import { BucketingPage } from '../pages/bucketing/bucketing';
 import { SyncPage } from '../pages/sync/sync';
+import { CheckinPublicPage } from '../pages/checkinPublic/checkinpublic';
+import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { SyncPage } from '../pages/sync/sync';
     FundraisingPage,
     BucketingPage,
     SyncPage,
+    CheckinPublicPage,
+    CheckinHomePage
   ],
   imports: [
     BrowserModule,
@@ -71,6 +75,8 @@ import { SyncPage } from '../pages/sync/sync';
     FundraisingPage,
     BucketingPage,
     SyncPage,
+    CheckinPublicPage,
+    CheckinHomePage
       ],
   providers: [
     StatusBar,

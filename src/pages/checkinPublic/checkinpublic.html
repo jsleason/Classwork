@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding class="has-header">
-<h1>Checkin</h1>
+    <h1>Checkin</h1>
 
     <ion-list>
 
@@ -30,15 +30,6 @@
 
         <ion-item>
             <ion-label>
-                <h3>Team:</h3>
-            </ion-label>
-            <ion-select [(ngModel)]="team">
-                <ion-option *ngFor="let team of teamlist" value={{team.teamId}} (click)="pull_team(team)">{{team.name}}</ion-option>
-            </ion-select>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>
                 <h3>Uniqname:</h3>
                 <!-- if uniqname doesnt match id, throw an error -->
             </ion-label>
@@ -48,14 +39,13 @@
     </ion-list>
 
     <div padding>
-        <button ion-button color="blue" (click)="navigateToProfile()" (click)="checkin()">Check in!</button>
+        <button ion-button color="blue" (click)="navigateToProfile()" (click)="publicCheckin()">Check in!</button>
 
-        <p>Checking in will take you to your team's event profile.</p>
+        <p>Checking in will take you to the public event profile.</p>
         <hr>
         <p>
-            If your account does not exist, you may need to register.
+            Click the button below if you would like to register for our organization and join a team.
         </p>
-        <!-- <button ion-button color="blue" (click)="navigateToSync()">Sync Registration</button> -->
         <button ion-button color="blue" (click)="navigateToRegistration()">Register</button>
     </div>
 

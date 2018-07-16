@@ -8,11 +8,18 @@
 </ion-header>
 
 <ion-content padding class="has-header">
-    <h1>About Us</h1>
+<h1>Checkin</h1>
+
     <ion-list>
-        <button ion-item *ngFor="let item of aboutlist" (click)="pull_about(item)">
-            <p>{{item.section}}</p>
-        </button>
+
+        <ion-item>
+            <button ion-button color="blue" (click)="navigateToCheckin()">Dancer Checkin</button>
+        </ion-item>
+
+        <ion-item>
+            <button ion-button color="blue" (click)="navigateToPublic()">Public Checkin</button>
+        </ion-item>
+
     </ion-list>
 
 </ion-content>
