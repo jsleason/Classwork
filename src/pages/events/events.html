@@ -1,21 +1,29 @@
 <ion-header>
-    <ion-fab left top>
-        <button padding ion-button menuToggle class="icon">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-auto>
+        <ion-icon>
+          <button padding ion-button menuToggle class="icon">
             <ion-icon name="menu"></ion-icon>
-        </button>
-    </ion-fab>
-    <img src="http://dmum.org/wp-content/uploads/2018/05/PlainRectangle3-1.jpg" (click)="navigateToHome()">
+          </button>
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <img src="http://dmum.org/wp-content/uploads/2018/05/PlainRectangle3-1.jpg" (click)="navigateToHome()">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-content padding class="has-header">
-<h1>Events</h1>
+  <h1>Events</h1>
 
   <ion-list>
-    <h2 >Calendar</h2>
+    <h2>Calendar</h2>
     <iframe src="https://calendar.google.com/calendar/embed?src=umich.edu_06sgmdi3nmv6d0hni9jdnrqdi4%40group.calendar.google.com&ctz=America%2FNew_York"
       style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     <hr>
-      <button ion-button color="blue" (click)="navigateToCheckin()">Event Checkin</button>
+    <button ion-button color="blue" (click)="navigateToCheckin()">Event Checkin</button>
 
     <h2>Featured Events</h2>
     <button ion-item *ngFor="let event of eventlist" (click)="pull_event(event)">

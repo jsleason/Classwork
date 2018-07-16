@@ -1,12 +1,19 @@
 <ion-header>
-    <ion-fab left top>
-        <button padding ion-button menuToggle class="icon">
-            <ion-icon name="menu"></ion-icon>
-        </button>
-    </ion-fab>
-    <img src="http://dmum.org/wp-content/uploads/2018/05/PlainRectangle3-1.jpg" (click)="navigateToHome()">
+    <ion-grid>
+        <ion-row>
+            <ion-col col-auto>
+                <ion-icon>
+                    <button padding ion-button menuToggle class="icon">
+                        <ion-icon name="menu"></ion-icon>
+                    </button>
+                </ion-icon>
+            </ion-col>
+            <ion-col>
+                <img src="http://dmum.org/wp-content/uploads/2018/05/PlainRectangle3-1.jpg" (click)="navigateToHome()">
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-header>
-
 <ion-content padding class="has-header">
     <h1>Therapies</h1>
     <p>The families and the therapies that Dance Marathon makes possible to the families are the cornerstones of our entire
