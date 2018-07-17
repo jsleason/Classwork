@@ -23,7 +23,6 @@ import { InvolvedDetailsPage } from '../pages/involved details/involveddetails';
 import { FamiliesPage } from '../pages/families/families';
 import { FundraisingPage } from '../pages/fundraising/fundraising';
 import { BucketingPage } from '../pages/bucketing/bucketing';
-import { SyncPage } from '../pages/sync/sync';
 import { CheckinPublicPage } from '../pages/checkinPublic/checkinpublic';
 import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
 
@@ -45,7 +44,6 @@ import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
     FamiliesPage,
     FundraisingPage,
     BucketingPage,
-    SyncPage,
     CheckinPublicPage,
     CheckinHomePage
   ],
@@ -74,7 +72,6 @@ import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
     FamiliesPage,
     FundraisingPage,
     BucketingPage,
-    SyncPage,
     CheckinPublicPage,
     CheckinHomePage
       ],
