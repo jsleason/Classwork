@@ -33,7 +33,7 @@ export class CheckinPublicPage {
     constructor(public navCtrl: NavController, public http: Http) {
         // gets events -> option list
         this.http
-            .get("http://localhost:3000/allEvents")
+            .get("http://localhost:3000/featuredEvents")
             .subscribe(
                 result => {
                     console.log(result.json());

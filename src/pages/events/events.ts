@@ -45,7 +45,7 @@ export class EventsPage {
         // this.eventlist = [VictorThon, PumpkinCarving, Gala, FTKFormal];
 
         this.http
-            .get("http://localhost:3000/allEvents")
+            .get("http://localhost:3000/featuredEvents")
             .subscribe(
                 result => {
                     console.log(result.json());
