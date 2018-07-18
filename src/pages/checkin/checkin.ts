@@ -76,7 +76,7 @@ export class CheckinPage {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
         this.http
-            .get("http://localhost:3000/participantUniqname")
+            .get("http://localhost:3000/participantUniqname?uniqname=" + this.uniqname)
             .subscribe(
                 result => {
                     let response = null;

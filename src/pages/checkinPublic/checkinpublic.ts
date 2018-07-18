@@ -27,7 +27,7 @@ export class CheckinPublicPage {
     public name: string;
     public event: Event;
     public eventId: number;
-    public uniqname: any;
+    public uniqname: string;
 
     posts: any;
     constructor(public navCtrl: NavController, public http: Http) {
@@ -64,9 +64,9 @@ export class CheckinPublicPage {
         this.http
 
             .post("http://localhost:3000/newPublicCheckin", {
-                participantId: this.uniqname,
                 eventId: this.event.eventId,
-
+                name: this.name,
+                uniqname: this.uniqname
             })
             .subscribe(
                 result => {

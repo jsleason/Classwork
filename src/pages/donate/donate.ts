@@ -104,16 +104,16 @@ export class DonatePage implements AfterViewInit, OnDestroy {
             name: this.name,
             dancer: this.dancer,
             relationId: this.relationId,
-            news_email: this.email,
+            email: this.email,
             eventId: this.eventId,
-            amount: this.amount,
+            amount: this.amount * 100, // converts to cents
         })
     .subscribe(
         result => {
             console.log(result.json);
             let alert = this.alertCtrl.create({
                 title: 'Thank you!',
-                subTitle: 'We appreciate your support FTK.',
+                message: 'We appreciate your support FTK.',
                 buttons: ['Dismiss']
               });
               alert.present();
