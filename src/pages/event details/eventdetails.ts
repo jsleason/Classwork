@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { errorHandler } from '@angular/platform-browser/src/browser';
 import { HomePage } from '../home/home';
 
 @Component({

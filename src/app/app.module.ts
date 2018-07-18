@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { AlertController } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';

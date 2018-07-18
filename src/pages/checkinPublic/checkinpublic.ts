@@ -7,6 +7,15 @@ import { HomePage } from '../home/home';
 //import 'rxjs/add/operator/map';
 //import { errorHandler } from '@angular/platform-browser/src/browser';
 
+class Event {
+    eventId: number;
+    name: string;
+    date_range: string;
+    time_range: string;
+    location: string;
+    description: string;
+}
+
 
 @Component({
     selector: 'page-checkinpublic',
@@ -16,7 +25,7 @@ export class CheckinPublicPage {
     public eventlist: Array<Event>;
     // public event: Event;  // selected event?
     public name: string;
-    public event: string;
+    public event: Event;
     public eventId: number;
     public uniqname: any;
 
@@ -37,11 +46,11 @@ export class CheckinPublicPage {
             );
     }
 
-    navigateToProfile() {
-        console.log("Navigating...");
+    // navigateToProfile() {
+    //     console.log("Navigating...");
 
-        this.navCtrl.push(ProfilePage);
-    }
+    //     this.navCtrl.push(ProfilePage);
+    // }
 
     navigateToRegistration() {
         console.log("Navigating...");
@@ -52,33 +61,40 @@ export class CheckinPublicPage {
     publicCheckin() {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
-
         this.http
+
             .post("http://localhost:3000/newPublicCheckin", {
                 participantId: this.uniqname,
-                eventId: this.eventId,
-                name: this.name
+                eventId: this.event.eventId,
+
             })
             .subscribe(
                 result => {
                     console.log(result.json);
+                    console.log("Navigating...");
+                    this.navCtrl.push(ProfilePage, {
+                        eventdata: this.event.name,
+                        namedata: this.name
+                    });
                 },
                 err => {
                     console.log(err);
                 }
+
             );
     }
 
-    pull_event(item) {
-        this.navCtrl.push(ProfilePage, {
-            eventdata: item
-        });
+    // pull_event(item) {
+    //     this.navCtrl.push(ProfilePage, {
+    //         eventdata: item
+    //     });
+    // }
+
+    navigateToHome() {
+        console.log("Navigating...");
+
+        this.navCtrl.push(HomePage);
     }
 
-    navigateToHome(){
-        console.log("Navigating...");
-      
-        this.navCtrl.push(HomePage);
-      }
-
 }
+

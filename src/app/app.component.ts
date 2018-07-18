@@ -15,6 +15,7 @@ import { FundraisingPage } from '../pages/fundraising/fundraising';
 import { RegistrationPage } from '../pages/registration/registration';
 import { BucketingPage } from '../pages/bucketing/bucketing';
 import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html',
@@ -24,7 +25,7 @@ export class MyApp {
 
   @ViewChild(Nav) navCtrl;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public modalCtrl: ModalController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public modalCtrl: ModalController, private alertCtrl: AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -94,6 +95,17 @@ export class MyApp {
     console.log("Navigating...");
   
     this.navCtrl.push(HomePage);
+  }
+
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Thank you!',
+      message: 'We appreciate your support FTK.',
+      buttons: ['Dismiss'],
+      enableBackdropDismiss: true
+    });
+    alert.present();
   }
 
 }

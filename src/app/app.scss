@@ -28,26 +28,26 @@
 $color-blue: #002344 ;
 $color-maize: #efc00c ;
 $color-white: #FFFFFF;
+$color-lightblue: #f3f7fc;
 
 h1 { color: $color-maize; 
-	font-family: Tienne, serif;
+	font-family: "Tienne";
 	font-style: bold;
-	font-size: xx-large;}
+	font-size: 18pt;}
 
 h2 { color: $color-blue; 
-	font-family: Old Standard TT, serif;
-	font-size: large;
+	font-family: "Old Standard TT";
+	font-size: 15pt;
 	font-style: bold;
 	text-decoration: underline;}
 
 h3 { color: $color-blue; 
-	font-family: Old Standard TT, sans-serif;
-	font-size: medium;
-	text-decoration: underline;}
+	font-family: "Old Standard TT";
+	font-size: 15pt;}
 
 p { color: $color-blue;
-	font-family: Helvetica Neue, sans-serif;
-	font-size: small;}
+	font-family: "Helvetica Neue";
+	font-size: 12pt;}
 
 
 .maize-outline {

@@ -28,13 +28,13 @@
         </ion-item>
 
         <ion-item>
-            <ion-label>
-                <h3>Event:</h3>
-            </ion-label>
-            <ion-select [(ngModel)]="eventId">
-                <ion-option *ngFor="let event of eventlist" value={{event.eventId}} (click)="pull_event(event)">{{event.name}}</ion-option>
-            </ion-select>
-        </ion-item>
+                <ion-label>
+                    <h3>Event:</h3>
+                </ion-label>
+                <ion-select [(ngModel)]="event">
+                    <ion-option *ngFor="let event of eventlist" [value]="event" >{{event.name}}</ion-option>
+                </ion-select>
+            </ion-item>
 
         <ion-item>
             <ion-label>
@@ -47,7 +47,7 @@
     </ion-list>
 
     <div padding>
-        <button ion-button color="blue" (click)="navigateToProfile()" (click)="publicCheckin()">Check in</button>
+        <button ion-button color="blue" (click)="publicCheckin()">Check in</button>
 
         <p>Checking in will take you to the public event profile.</p>
         <hr>

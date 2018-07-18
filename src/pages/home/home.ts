@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 import { Ng4TwitterTimelineService } from 'ng4-twitter-timeline/lib/index';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { errorHandler } from '@angular/platform-browser/src/browser';
 
 import { CheckinPage } from '../checkin/checkin';
 import { InvolvedPage } from '../involved/involved';

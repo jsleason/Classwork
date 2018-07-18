@@ -7,6 +7,14 @@ import { HomePage } from '../home/home';
 //import 'rxjs/add/operator/map';
 //import { errorHandler } from '@angular/platform-browser/src/browser';
 
+class Event{
+      eventId: number;
+      name: string;
+      date_range: string;
+      time_range: string;
+      location: string;
+      description: string;
+}
 
 @Component({
     selector: 'page-checkin',
@@ -18,7 +26,7 @@ export class CheckinPage {
     // public event: Event;  // selected event?
     public team: string;
     public name: string;
-    public event: string;
+    public event: Event;
     public eventId: number;
     public uniqname: any;
 
@@ -52,11 +60,11 @@ export class CheckinPage {
             );
     }
 
-    navigateToProfile() {
-        console.log("Navigating...");
+    // navigateToProfile() {
+    //     console.log("Navigating...");
 
-        this.navCtrl.push(ProfilePage);
-    }
+    //     this.navCtrl.push(ProfilePage);
+    // }
 
     navigateToRegistration() {
         console.log("Navigating...");
@@ -68,49 +76,81 @@ export class CheckinPage {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
         this.http
-            .get("http://localhost:3000//participantUniqname")
+            .get("http://localhost:3000/participantUniqname")
             .subscribe(
                 result => {
+                    let response = null;
+
+                    try {
+                        response = result.json();
+                    } catch {
+                        alert('uniqname not found!');
+                    }
+
+                    // if (response.status >= 400) {
+                    //     alert('uniqname not found!')
+                    //     return;
+                    // }
+
                     console.log(result.json());
                     let data = result.json();
                     this.uniqname = data.uniqname;
+                    
+
+                    this.http
+                    .post("http://localhost:3000/newCheckin", {
+                        participantId: this.uniqname,
+                        eventId: this.event.eventId,
+                        
+                    })
+                    .subscribe(
+                        result => {
+                            console.log(result.json);
+                            console.log(this.team);
+                            console.log("Navigating...");
+                            this.navCtrl.push(ProfilePage, {
+                                eventdata: this.event.name,
+                                teamdata: this.team,
+                                namedata: this.name
+                            });
+                        },
+                        err => {
+                            console.log(err);
+                        }
+                    );
                 },
                 err => {
+                    if (err.status >= 400) {
+                        alert('uniqname not found!')
+                        return;
+                    }
                     console.log(err);
                 }
             );
 
-        this.http
-            .post("http://localhost:3000/newPublicCheckin", {
-                participantId: this.uniqname,
-                eventId: this.eventId,
+        // this.http
+        //     .post("http://localhost:3000/newCheckin", {
+        //         participantId: this.uniqname,
+        //         eventId: this.event.eventId,
                 
-            })
-            .subscribe(
-                result => {
-                    console.log(result.json);
-                },
-                err => {
-                    console.log(err);
-                }
-            );
-
-            this.navCtrl.push(ProfilePage, {
-                namedata: name
-            });
+        //     })
+        //     .subscribe(
+        //         result => {
+        //             console.log(result.json);
+        //             console.log(this.team);
+        //             console.log("Navigating...");
+        //             this.navCtrl.push(ProfilePage, {
+        //                 eventdata: this.event.name,
+        //                 teamdata: this.team,
+        //                 namedata: this.name
+        //             });
+        //         },
+        //         err => {
+        //             console.log(err);
+        //         }
+        //     );
     }
 
-    pull_event(item) {
-        this.navCtrl.push(ProfilePage, {
-            eventdata: item
-        });
-    }
-
-    pull_team(item) {
-        this.navCtrl.push(ProfilePage, {
-            teamdata: item
-        });
-    }
 
     navigateToHome(){
         console.log("Navigating...");

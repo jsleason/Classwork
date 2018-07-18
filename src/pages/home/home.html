@@ -46,8 +46,11 @@
           <ion-item *ngFor="let promo of sponsorPromos">
             <a href="{{promo.link}}" target="_blank">{{promo.title}}</a>
             <p>Code: {{promo.code}}</p>
+            <p><img src="{{promo.imgsrc}}"></p>
           </ion-item>
         </ion-list>
+        <p>Thank you to our <a href="http://dmum.org/?page_id=253">Sponsors</a>.</p>
+        
       </ion-col>
 
       <ion-col>
@@ -58,11 +61,13 @@
             <p>{{promo.description}}</p>
           </ion-item>
         </ion-list>
+        
       </ion-col>
-
+      <hr>
     </ion-row>
 
     <ion-row>
+      <hr>
       <ion-col >
         <button padding ion-button href="http://dmum.org/?page_id=2001">
           Blog </button>

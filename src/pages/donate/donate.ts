@@ -2,9 +2,18 @@ import { Component, ViewChild, AfterViewInit, OnDestroy, ElementRef, ChangeDetec
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { errorHandler } from '@angular/platform-browser/src/browser';
 import { NgForm } from '@angular/forms';
 import { HomePage } from '../home/home';
+import { AlertController } from 'ionic-angular';
+
+class Event {
+    eventId: number;
+    name: string;
+    date_range: string;
+    time_range: string;
+    location: string;
+    description: string;
+}
 
 @Component({
   selector: 'page-donate',
@@ -20,14 +29,14 @@ export class DonatePage implements AfterViewInit, OnDestroy {
   public dancer: string;
   public relationId: any;
   public email: string;
-  public eventId: any;
+  public eventId: number;
   public amount: number;
 
   card: any;
   cardHandler = this.onChange.bind(this);
   error: string;
 
-  constructor(public navCtrl: NavController, public http: Http, private cd: ChangeDetectorRef) {
+  constructor(public navCtrl: NavController, public http: Http, private cd: ChangeDetectorRef, private alertCtrl: AlertController) {
 
     this.http
     .get("http://localhost:3000/allEvents")
@@ -102,6 +111,12 @@ export class DonatePage implements AfterViewInit, OnDestroy {
     .subscribe(
         result => {
             console.log(result.json);
+            let alert = this.alertCtrl.create({
+                title: 'Thank you!',
+                subTitle: 'We appreciate your support FTK.',
+                buttons: ['Dismiss']
+              });
+              alert.present();
         },
         err => {
             console.log(err);

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EventDetailsPage } from '../event details/eventdetails';
-import { CheckinPage } from '../checkin/checkin';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { errorHandler } from '@angular/platform-browser/src/browser';
 import { HomePage } from '../home/home';
+import { CheckinHomePage } from '../checkinHome/checkinhome';
 
 export class Event {
 
@@ -68,7 +67,7 @@ export class EventsPage {
     navigateToCheckin() {
         console.log("Navigating...");
 
-        this.navCtrl.push(CheckinPage);
+        this.navCtrl.push(CheckinHomePage);
     }
 
     navigateToHome(){
