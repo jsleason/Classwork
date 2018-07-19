@@ -16,11 +16,43 @@
 </ion-header>
 
 <ion-content padding>
-    <p>Hi, {{name}}. Welcome to {{event}}!</p>
+    <h1>Hi, {{name}}. Welcome to {{eventName}}!</h1>
 
-    <p>We appreaciate all the work that you and your team, {{team}}, have done for DMUM.</p>
+    <p>{{description}}</p>
 
-    <h2>Announcements</h2>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-auto>
+                <h3>Schedule:</h3>
+                <img src="{{img_schedule}}">
+                <hr>
+                <h3>Map:</h3>
+                <img src="{{img_map}}">
+            </ion-col>
+                <ion-col col-auto>
+                    <ion-list text-wrap>
+                        <ion-item>
+                            {{info1}}
+                        </ion-item>
+                        <ion-item>
+                            {{info2}}
+                        </ion-item>
+                        <ion-item>
+                            {{info3}}
+                        </ion-item>
+                        <ion-item>
+                            {{info4}}
+                        </ion-item>
+                        <ion-item>
+                            {{info5}}
+                        </ion-item>
+                    </ion-list>
+
+                </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
 
 
 

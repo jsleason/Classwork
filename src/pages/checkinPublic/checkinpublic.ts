@@ -70,10 +70,10 @@ export class CheckinPublicPage {
             })
             .subscribe(
                 result => {
-                    console.log(result.json);
                     console.log("Navigating...");
                     this.navCtrl.push(ProfilePage, {
-                        eventdata: this.event.name,
+                        eventnamedata: this.event.name,
+                        eventiddata: this.event.eventId,
                         namedata: this.name
                     });
                 },

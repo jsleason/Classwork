@@ -4,16 +4,18 @@ import { ProfilePage } from '../profile/profile';
 import { RegistrationPage } from '../registration/registration';
 import { Http } from '@angular/http';
 import { HomePage } from '../home/home';
+import { AlertController } from 'ionic-angular';
+
 //import 'rxjs/add/operator/map';
 //import { errorHandler } from '@angular/platform-browser/src/browser';
 
-class Event{
-      eventId: number;
-      name: string;
-      date_range: string;
-      time_range: string;
-      location: string;
-      description: string;
+class Event {
+    eventId: number;
+    name: string;
+    date_range: string;
+    time_range: string;
+    location: string;
+    description: string;
 }
 
 @Component({
@@ -31,15 +33,13 @@ export class CheckinPage {
     public uniqname: any;
 
     posts: any;
-    constructor(public navCtrl: NavController, public http: Http) {
+    constructor(public navCtrl: NavController, public http: Http, private alertCtrl: AlertController) {
         // gets events -> option list
         this.http
             .get("http://localhost:3000/activeEvents")
             .subscribe(
                 result => {
-                    console.log(result.json());
-                    let data = result.json();
-                    this.eventlist = data;
+                    this.eventlist = result.json();;
                 },
                 err => {
                     console.log(err);
@@ -50,21 +50,13 @@ export class CheckinPage {
             .get("http://localhost:3000/allTeams")
             .subscribe(
                 result => {
-                    console.log(result.json());
-                    let data = result.json();
-                    this.teamlist = data;
+                    this.teamlist = result.json();
                 },
                 err => {
                     console.log(err);
                 }
             );
     }
-
-    // navigateToProfile() {
-    //     console.log("Navigating...");
-
-    //     this.navCtrl.push(ProfilePage);
-    // }
 
     navigateToRegistration() {
         console.log("Navigating...");
@@ -83,79 +75,65 @@ export class CheckinPage {
 
                     try {
                         response = result.json();
-                    } catch {
-                        alert('uniqname not found!');
-                    }
 
-                    // if (response.status >= 400) {
-                    //     alert('uniqname not found!')
-                    //     return;
-                    // }
+                        if (response.success == false) {
+                            throw new Error();
+                        }
+                    } catch (e) {
+                        let alert = this.alertCtrl.create({
+                            title: 'Your uniqname was not found',
+                            message: 'Please check the spelling of your uniqname. If your uniqname is spelled coorectly, it is possible that you are not registered. Non registered participants need to register or use the public checkin.',
+                            buttons: ['Dismiss']
+                        });
+                        alert.present();
+                    }
 
                     console.log(result.json());
                     let data = result.json();
                     this.uniqname = data.uniqname;
-                    
+
 
                     this.http
-                    .post("http://localhost:3000/newCheckin", {
-                        participantId: this.uniqname,
-                        eventId: this.event.eventId,
-                        
-                    })
-                    .subscribe(
-                        result => {
-                            console.log(result.json);
-                            console.log(this.team);
-                            console.log("Navigating...");
-                            this.navCtrl.push(ProfilePage, {
-                                eventdata: this.event.name,
-                                teamdata: this.team,
-                                namedata: this.name
-                            });
-                        },
-                        err => {
-                            console.log(err);
-                        }
-                    );
+                        .post("http://localhost:3000/newCheckin", {
+                            participantId: this.uniqname,
+                            eventId: this.event.eventId,
+
+                        })
+                        .subscribe(
+                            result => {
+                                console.log("Navigating...");
+                                this.navCtrl.push(ProfilePage, {
+                                    eventnamedata: this.event.name,
+                                    eventiddata: this.event.eventId,
+                                    namedata: this.name
+                                });
+                            },
+                            err => {
+                                console.log(err);
+                            }
+                        );
                 },
                 err => {
-                    if (err.status >= 400) {
-                        alert('uniqname not found!')
-                        return;
-                    }
+                    let alert = this.alertCtrl.create({
+                        title: 'Your uniqname was not found',
+                        message: 'Please check the spelling of your uniqname. If your uniqname is spelled coorectly, it is possible that you are not registered. Non registered participants need to register or use the public checkin.',
+                        buttons: ['Dismiss']
+                    });
+                    alert.present();
+                    // if (err.status >= 400) {
+                    //     alert('uniqname not found!')
+                    //     return;
+                    // }
                     console.log(err);
                 }
             );
-
-        // this.http
-        //     .post("http://localhost:3000/newCheckin", {
-        //         participantId: this.uniqname,
-        //         eventId: this.event.eventId,
-                
-        //     })
-        //     .subscribe(
-        //         result => {
-        //             console.log(result.json);
-        //             console.log(this.team);
-        //             console.log("Navigating...");
-        //             this.navCtrl.push(ProfilePage, {
-        //                 eventdata: this.event.name,
-        //                 teamdata: this.team,
-        //                 namedata: this.name
-        //             });
-        //         },
-        //         err => {
-        //             console.log(err);
-        //         }
-        //     );
     }
 
 
-    navigateToHome(){
+    navigateToHome() {
         console.log("Navigating...");
-      
+
         this.navCtrl.push(HomePage);
-      }
+    }
 
 }
