@@ -5,6 +5,8 @@ import { RegistrationPage } from '../registration/registration';
 import { Http } from '@angular/http';
 import { HomePage } from '../home/home';
 import { AlertController } from 'ionic-angular';
+import { OnInit } from '@angular/core';
+import { Ng4LoadingSpinnerService } from 'ngx-loading-spinner';
 
 //import 'rxjs/add/operator/map';
 //import { errorHandler } from '@angular/platform-browser/src/browser';
@@ -23,6 +25,7 @@ class Event {
     templateUrl: 'checkin.html'
 })
 export class CheckinPage {
+    public loading = false;
     public eventlist: Array<Event>;
     public teamlist: Array<any>;
     // public event: Event;  // selected event?
@@ -33,7 +36,7 @@ export class CheckinPage {
     public uniqname: any;
 
     posts: any;
-    constructor(public navCtrl: NavController, public http: Http, private alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, public http: Http, private alertCtrl: AlertController,  private spinnerService: Ng4LoadingSpinnerService) {
         // gets events -> option list
         this.http
             .get("http://localhost:3000/activeEvents")
@@ -67,6 +70,7 @@ export class CheckinPage {
     checkin() {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
+        this.spinnerService.show();
         this.http
             .get("http://localhost:3000/participantUniqname?uniqname=" + this.uniqname)
             .subscribe(
@@ -80,6 +84,7 @@ export class CheckinPage {
                             throw new Error();
                         }
                     } catch (e) {
+                        this.spinnerService.hide();
                         let alert = this.alertCtrl.create({
                             title: 'Your uniqname was not found',
                             message: 'Please check the spelling of your uniqname. If your uniqname is spelled coorectly, it is possible that you are not registered. Non registered participants need to register or use the public checkin.',
@@ -87,8 +92,6 @@ export class CheckinPage {
                         });
                         alert.present();
                     }
-
-                    console.log(result.json());
                     let data = result.json();
                     this.uniqname = data.uniqname;
 
@@ -107,6 +110,7 @@ export class CheckinPage {
                                     eventiddata: this.event.eventId,
                                     namedata: this.name
                                 });
+                                this.spinnerService.hide();
                             },
                             err => {
                                 console.log(err);
@@ -114,16 +118,7 @@ export class CheckinPage {
                         );
                 },
                 err => {
-                    let alert = this.alertCtrl.create({
-                        title: 'Your uniqname was not found',
-                        message: 'Please check the spelling of your uniqname. If your uniqname is spelled coorectly, it is possible that you are not registered. Non registered participants need to register or use the public checkin.',
-                        buttons: ['Dismiss']
-                    });
-                    alert.present();
-                    // if (err.status >= 400) {
-                    //     alert('uniqname not found!')
-                    //     return;
-                    // }
+                    this.spinnerService.hide();
                     console.log(err);
                 }
             );

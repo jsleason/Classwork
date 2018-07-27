@@ -39,7 +39,7 @@ export class DonatePage implements AfterViewInit, OnDestroy {
   constructor(public navCtrl: NavController, public http: Http, private cd: ChangeDetectorRef, private alertCtrl: AlertController) {
 
     this.http
-    .get("http://localhost:3000/allEvents")
+    .get("http://localhost:3000/featuredEvents")
     .subscribe(
         result => {
             console.log(result.json());

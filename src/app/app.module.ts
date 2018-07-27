@@ -7,6 +7,7 @@ import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
+import { Ng4LoadingSpinnerModule } from 'ngx-loading-spinner';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -53,7 +54,8 @@ import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
     IonicModule.forRoot(MyApp),
     Ng4TwitterTimelineModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    Ng4LoadingSpinnerModule
     ],
   bootstrap: [IonicApp],
   entryComponents: [

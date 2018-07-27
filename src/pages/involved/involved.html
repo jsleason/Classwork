@@ -24,7 +24,7 @@
         <button ion-button color="blue" (click)="navigateToTherapies()">Volunteer at Therapies</button>
     </ion-row>
 
-    <ion-list inset>
+    <ion-list>
         <div padding>
             <button padding ion-item *ngFor="let method of involvedlist" (click)="pull_involved(method)">
                 <p>{{method.type}}</p>

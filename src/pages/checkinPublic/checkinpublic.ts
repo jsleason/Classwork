@@ -4,6 +4,8 @@ import { ProfilePage } from '../profile/profile';
 import { RegistrationPage } from '../registration/registration';
 import { Http } from '@angular/http';
 import { HomePage } from '../home/home';
+import { Ng4LoadingSpinnerService } from 'ngx-loading-spinner';
+
 //import 'rxjs/add/operator/map';
 //import { errorHandler } from '@angular/platform-browser/src/browser';
 
@@ -30,7 +32,7 @@ export class CheckinPublicPage {
     public uniqname: string;
 
     posts: any;
-    constructor(public navCtrl: NavController, public http: Http) {
+    constructor(public navCtrl: NavController, public http: Http, private spinnerService: Ng4LoadingSpinnerService) {
         // gets events -> option list
         this.http
             .get("http://localhost:3000/featuredEvents")
@@ -61,6 +63,8 @@ export class CheckinPublicPage {
     publicCheckin() {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
+        this.spinnerService.show();
+
         this.http
 
             .post("http://localhost:3000/newPublicCheckin", {
@@ -76,8 +80,10 @@ export class CheckinPublicPage {
                         eventiddata: this.event.eventId,
                         namedata: this.name
                     });
+                    this.spinnerService.hide()
                 },
                 err => {
+                    this.spinnerService.hide()
                     console.log(err);
                 }
 

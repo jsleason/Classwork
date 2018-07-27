@@ -15,40 +15,51 @@
 
 <ion-content padding>
 
-  <ion-list inset>
+  <ion-list>
 
-    <h3>Name:</h3>
-    <ion-item>
+    <ion-item text-wrap>
+      <ion-label>
+        <h3>Name:</h3>
+      </ion-label>
       <ion-input [(ngModel)]="name" color="blue" type="text"></ion-input>
     </ion-item>
 
-    <h3>Email:</h3>
-    <ion-item>
+    <ion-item text-wrap>
+      <ion-label>
+        <h3>Email:</h3>
+      </ion-label>
       <ion-input [(ngModel)]="email" color="blue" type="text"></ion-input>
     </ion-item>
 
-    <h3>If you wish to support a specific dancer's fundraising efforts, please enter their name below.</h3>
-    <ion-item>
+    <ion-item text-wrap>
+      <ion-label>
+        <h3>If you wish to support a dancer's fundraising efforts, please enter their name:</h3>
+      </ion-label>
       <ion-input [(ngModel)]="dancer" color="blue" type="text"></ion-input>
     </ion-item>
 
-    <hr>
-    <h3>What is your relation to DMUM?</h3>
-    <ion-item>
+    <ion-item text-wrap>
+      <ion-label>
+        <h3>What is your relation to DMUM?</h3>
+      </ion-label>
       <ion-select [(ngModel)]="relation">
         <ion-option *ngFor="let relation of relationlist" value="{{relation.relationId}}">{{relation.type}}</ion-option>
       </ion-select>
     </ion-item>
 
-    <h3>If this is related to a specific event fundraising, please select event below.</h3>
-    <ion-item>
+    <ion-item text-wrap>
+      <ion-label>
+        <h3>If this is related to a specific event fundraising, please select the event.</h3>
+      </ion-label>
       <ion-select [(ngModel)]="event">
         <ion-option *ngFor="let event of eventlist" value="{{event.eventId}}">{{event.name}}</ion-option>
       </ion-select>
     </ion-item>
 
-    <h3>Donation Amount:</h3>
-    <ion-item>
+    <ion-item text-wrap>
+      <ion-label>
+        <h3>Donation Amount:</h3>
+      </ion-label>
       <ion-input [(ngModel)]="amount" color="blue" type="text"></ion-input>
     </ion-item>
 

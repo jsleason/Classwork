@@ -41,14 +41,16 @@
                 <h3>Uniqname:</h3>
                 <!-- if uniqname doesnt match id, throw an error -->
             </ion-label>
-            <ion-input [(ngModel)]="uniqname" type="text"></ion-input>
+            <ion-input class="l" [(ngModel)]="uniqname" type="text"></ion-input>
         </ion-item>
 
     </ion-list>
 
     <div padding>
         <button ion-button color="blue" (click)="publicCheckin()">Check in</button>
-
+        <div class="my-container">
+            <ngx-loading-spinner> </ngx-loading-spinner>
+        </div>
         <p>Checking in will take you to the public event profile.</p>
         <hr>
         <p>
