@@ -5,6 +5,8 @@ import { RegistrationPage } from '../registration/registration';
 import { Http } from '@angular/http';
 import { HomePage } from '../home/home';
 import { Ng4LoadingSpinnerService } from 'ngx-loading-spinner';
+import { CheckinHomePage } from '../checkinHome/checkinhome';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 //import 'rxjs/add/operator/map';
 //import { errorHandler } from '@angular/platform-browser/src/browser';
@@ -24,6 +26,10 @@ class Event {
     templateUrl: 'checkinpublic.html'
 })
 export class CheckinPublicPage {
+    PCheckinForm: FormGroup;
+
+    submitAttempt: boolean = false;
+    
     public eventlist: Array<Event>;
     // public event: Event;  // selected event?
     public name: string;
@@ -32,8 +38,13 @@ export class CheckinPublicPage {
     public uniqname: string;
 
     posts: any;
-    constructor(public navCtrl: NavController, public http: Http, private spinnerService: Ng4LoadingSpinnerService) {
-        // gets events -> option list
+    constructor(public navCtrl: NavController, public http: Http, private spinnerService: Ng4LoadingSpinnerService, public formBuilder: FormBuilder) {
+        this.PCheckinForm = formBuilder.group({
+            name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+            event: ['', Validators.compose([Validators.required])],
+            uniqname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]
+        });
+
         this.http
             .get("http://localhost:3000/featuredEvents")
             .subscribe(
@@ -63,6 +74,8 @@ export class CheckinPublicPage {
     publicCheckin() {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
+        this.submitAttempt = true;
+
         this.spinnerService.show();
 
         this.http
@@ -100,6 +113,12 @@ export class CheckinPublicPage {
         console.log("Navigating...");
 
         this.navCtrl.push(HomePage);
+    }
+
+    navigateToCheckinHome() {
+        console.log("Navigating...");
+
+        this.navCtrl.push(CheckinHomePage);
     }
 
 }

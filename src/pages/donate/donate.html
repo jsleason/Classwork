@@ -15,54 +15,61 @@
 
 <ion-content padding>
 
-  <ion-list>
+  <ion-list #D>
+    <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out required details accurately.</p>
+    <!-- <form [formGroup]="DonateForm"> -->
 
-    <ion-item text-wrap>
-      <ion-label>
-        <h3>Name:</h3>
-      </ion-label>
-      <ion-input [(ngModel)]="name" color="blue" type="text"></ion-input>
-    </ion-item>
+      <ion-item text-wrap>
+        <ion-label>
+          <h3>Name:</h3>
+        </ion-label>
+        <ion-input [(ngModel)]="name" color="blue" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item text-wrap>
-      <ion-label>
-        <h3>Email:</h3>
-      </ion-label>
-      <ion-input [(ngModel)]="email" color="blue" type="text"></ion-input>
-    </ion-item>
+      <ion-item text-wrap>
+        <ion-label>
+          <h3>Email:</h3>
+        </ion-label>
+        <ion-input [(ngModel)]="email" color="blue" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item text-wrap>
-      <ion-label>
-        <h3>If you wish to support a dancer's fundraising efforts, please enter their name:</h3>
-      </ion-label>
-      <ion-input [(ngModel)]="dancer" color="blue" type="text"></ion-input>
-    </ion-item>
+      <ion-item text-wrap>
+        <ion-label>
+          <h3>If you wish to support a dancer's fundraising efforts, please enter their name:</h3>
+        </ion-label>
+        <ion-input [(ngModel)]="dancer" color="blue" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item text-wrap>
-      <ion-label>
-        <h3>What is your relation to DMUM?</h3>
-      </ion-label>
-      <ion-select [(ngModel)]="relation">
-        <ion-option *ngFor="let relation of relationlist" value="{{relation.relationId}}">{{relation.type}}</ion-option>
-      </ion-select>
-    </ion-item>
+      <ion-item text-wrap>
+        <ion-label>
+          <h3>What is your relation to DMUM?</h3>
+        </ion-label>
+        <ion-select [(ngModel)]="relation">
+          <ion-option *ngFor="let relation of relationlist" value="{{relation.relationId}}">{{relation.type}}</ion-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item text-wrap>
-      <ion-label>
-        <h3>If this is related to a specific event fundraising, please select the event.</h3>
-      </ion-label>
-      <ion-select [(ngModel)]="event">
-        <ion-option *ngFor="let event of eventlist" value="{{event.eventId}}">{{event.name}}</ion-option>
-      </ion-select>
-    </ion-item>
+      <ion-item text-wrap>
+        <ion-label>
+          <h3>If this is related to a specific event fundraising, please select the event.</h3>
+        </ion-label>
+        <ion-select [(ngModel)]="event">
+          <ion-option *ngFor="let event of eventlist" value="{{event.eventId}}">{{event.name}}</ion-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item text-wrap>
-      <ion-label>
-        <h3>Donation Amount:</h3>
-      </ion-label>
-      <ion-input [(ngModel)]="amount" color="blue" type="text"></ion-input>
-    </ion-item>
+      <ion-item text-wrap>
+        <ion-label>
+          <h3>* Donation Amount:</h3>
+        </ion-label>
+        <ion-input [(ngModel)]="amount" type="number" [class.invalid]="!DonateForm.controls.amount.valid && (DonateForm.controls.amount.dirty || submitAttempt)"></ion-input>
+      </ion-item>
+      
+      <ion-item *ngIf="!DonateForm.controls.amount.valid  && (DonateForm.controls.amount.dirty || submitAttempt)">
+          <p>Please enter a donation amount.</p>
+      </ion-item>
 
+    <!-- </form> -->
   </ion-list>
 
   <!-- credit card donation - stripe integration -->
@@ -75,11 +82,11 @@
     </div>
     <button type="submit" (click)="donate()">Donate ${{amount}}</button>
 
-  </form>
+ </form>
 
   <div class="my-container">
     <ngx-loading-spinner> </ngx-loading-spinner>
-</div>
+  </div>
 
   <p>
     If you wish to donate another way, feel free to follow the link to donate

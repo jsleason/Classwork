@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { RegistrationPage } from '../registration/registration';
@@ -7,6 +7,8 @@ import { HomePage } from '../home/home';
 import { AlertController } from 'ionic-angular';
 import { OnInit } from '@angular/core';
 import { Ng4LoadingSpinnerService } from 'ngx-loading-spinner';
+import { CheckinHomePage } from '../checkinHome/checkinhome';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 //import 'rxjs/add/operator/map';
 //import { errorHandler } from '@angular/platform-browser/src/browser';
@@ -25,6 +27,13 @@ class Event {
     templateUrl: 'checkin.html'
 })
 export class CheckinPage {
+
+    @ViewChild('DCheckin') DCheckin: any;
+
+    DCheckinForm: FormGroup;
+
+    submitAttempt: boolean = false;
+
     public loading = false;
     public eventlist: Array<Event>;
     public teamlist: Array<any>;
@@ -36,8 +45,16 @@ export class CheckinPage {
     public uniqname: any;
 
     posts: any;
-    constructor(public navCtrl: NavController, public http: Http, private alertCtrl: AlertController,  private spinnerService: Ng4LoadingSpinnerService) {
+    constructor(public navCtrl: NavController, public http: Http, private alertCtrl: AlertController,  private spinnerService: Ng4LoadingSpinnerService, public formBuilder: FormBuilder) {
         // gets events -> option list
+
+        this.DCheckinForm = formBuilder.group({
+            name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+            event: ['', Validators.compose([Validators.required])],
+            team: ['', Validators.compose([Validators.required])],
+            uniqname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]
+        });
+
         this.http
             .get("http://localhost:3000/activeEvents")
             .subscribe(
@@ -70,6 +87,7 @@ export class CheckinPage {
     checkin() {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
+        this.submitAttempt = true;
         this.spinnerService.show();
         this.http
             .get("http://localhost:3000/participantUniqname?uniqname=" + this.uniqname)
@@ -131,4 +149,9 @@ export class CheckinPage {
         this.navCtrl.push(HomePage);
     }
 
+    navigateToCheckinHome() {
+        console.log("Navigating...");
+
+        this.navCtrl.push(CheckinHomePage);
+    }
 }

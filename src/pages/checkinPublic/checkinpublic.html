@@ -7,6 +7,9 @@
                         <ion-icon name="menu"></ion-icon>
                     </button>
                 </ion-icon>
+                <button ion-button icon-left (click)="navigateToCheckinHome()">
+                    <ion-icon name="arrow-back"></ion-icon>
+                </button>
             </ion-col>
             <ion-col>
                 <img src="http://dmum.org/wp-content/uploads/2018/05/PlainRectangle3-1.jpg" (click)="navigateToHome()">
@@ -18,31 +21,48 @@
 <ion-content padding class="has-header">
     <h1>Checkin</h1>
 
-    <ion-list>
+    <ion-list #PChekin>
+        <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+        <form [formGroup]="PCheckinForm">
 
-        <ion-item>
-            <ion-label>
-                <h3>Name:</h3>
-            </ion-label>
-            <ion-input [(ngModel)]="name" type="text"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label>
+                    <h3>Full Name:</h3>
+                </ion-label>
+                <ion-input formControlName="name" [(ngModel)]="name" type="text" [class.invalid]="!PCheckinForm.controls.name.valid && (PCheckinForm.controls.name.dirty || submitAttempt)"></ion-input>
+            </ion-item>
 
-        <ion-item>
+            <ion-item *ngIf="!PCheckinForm.controls.name.valid  && (PCheckinForm.controls.name.dirty || submitAttempt)">
+                <p>Please enter a valid name.</p>
+            </ion-item>
+
+            <ion-item>
                 <ion-label>
                     <h3>Event:</h3>
                 </ion-label>
-                <ion-select [(ngModel)]="event">
-                    <ion-option *ngFor="let event of eventlist" [value]="event" >{{event.name}}</ion-option>
+                <ion-select formControlName="event" [(ngModel)]="event" [class.invalid]="!PCheckinForm.controls.event.valid && (PCheckinForm.controls.event.dirty || submitAttempt)">
+                    <ion-option *ngFor="let event of eventlist" [value]="event">{{event.name}}</ion-option>
                 </ion-select>
+                <ion-item *ngIf="!PCheckinForm.controls.event.valid  && (PCheckinForm.controls.event.dirty || submitAttempt)">
+                        <p>Please select an event.</p>
+                    </ion-item>
             </ion-item>
 
-        <ion-item>
-            <ion-label>
-                <h3>Uniqname:</h3>
-                <!-- if uniqname doesnt match id, throw an error -->
-            </ion-label>
-            <ion-input class="l" [(ngModel)]="uniqname" type="url"></ion-input>
-        </ion-item>
+
+
+            <ion-item>
+                <ion-label>
+                    <h3>Uniqname:</h3>
+                    <!-- if uniqname doesnt match id, throw an error -->
+                </ion-label>
+                <ion-input class="l" formControlName="uniqname" [(ngModel)]="uniqname" type="url" [class.invalid]="!PCheckinForm.controls.uniqname.valid && (PCheckinForm.controls.uniqname.dirty || submitAttempt)"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="!PCheckinForm.controls.uniqname.valid  && (PCheckinForm.controls.uniqname.dirty || submitAttempt)">
+                <p>Please enter a valid uniqname.</p>
+            </ion-item>
+
+        </form>
 
     </ion-list>
 
