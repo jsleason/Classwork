@@ -17,7 +17,7 @@
 
 <ion-content padding class="has-header">
 
-  <ion-grid >
+  <ion-grid>
 
     <ion-row>
       <ion-col>
@@ -43,42 +43,53 @@
       <ion-col>
         <h3>Sponsorship Promotions</h3>
         <ion-list>
+            <div *ngIf="registrationPromos?.length == 0">
+                No Current Promotions
+              </div>
           <ion-item *ngFor="let promo of sponsorPromos">
             <a href="{{promo.link}}" target="_blank">{{promo.title}}</a>
             <p>Code: {{promo.code}}</p>
-            <p><img src="{{promo.imgsrc}}"></p>
+            <p>
+              <img src="{{promo.imgsrc}}">
+            </p>
           </ion-item>
         </ion-list>
-        <p>Thank you to our <a href="http://dmum.org/?page_id=253">Sponsors</a>.</p>
-        
+        <p>Thank you to our
+          <a href="http://dmum.org/?page_id=253">Sponsors</a>.</p>
+
       </ion-col>
 
       <ion-col>
         <h3>Registration Promotions</h3>
         <ion-list>
+          <div *ngIf="registrationPromos?.length == 0">
+            No Current Promotions
+          </div>
           <ion-item *ngFor="let promo of registrationPromos">
             <h4>{{promo.title}}</h4>
             <p>{{promo.description}}</p>
           </ion-item>
         </ion-list>
-        
+
       </ion-col>
       <hr>
     </ion-row>
 
     <ion-row>
       <hr>
-      <ion-col >
-        <button padding ion-button href="http://dmum.org/?page_id=2001">
-          Blog </button>
+      <ion-col>
+        <a padding ion-button href="http://dmum.org/?page_id=2001" class="ion-button" target="_blank">
+          Blog </a>
       </ion-col>
       <ion-col>
-        <button ion-button padding href="https://dmum.donordrive.com/index.cfm?fuseaction=donorDrive.event&eventID=613">DonorDrive</button>
+        <a ion-button padding class="ion-button" href="https://dmum.donordrive.com/index.cfm?fuseaction=donorDrive.event&eventID=613"
+          target="_blank">DonorDrive</a>
       </ion-col>
       <ion-col>
-        <button padding ion-button href="https://shop.undergroundshirts.com/collections/dmum">
+        <a padding ion-button class="ion-button" href="https://shop.undergroundshirts.com/collections/dmum" target="_blank">
           Web Store
-        </button>
+        </a>
+
       </ion-col>
     </ion-row>
 

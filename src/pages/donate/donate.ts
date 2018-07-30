@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { NgForm } from '@angular/forms';
 import { HomePage } from '../home/home';
 import { AlertController } from 'ionic-angular';
+import { Ng4LoadingSpinnerService } from 'ngx-loading-spinner';
 
 class Event {
     eventId: number;
@@ -36,7 +37,7 @@ export class DonatePage implements AfterViewInit, OnDestroy {
   cardHandler = this.onChange.bind(this);
   error: string;
 
-  constructor(public navCtrl: NavController, public http: Http, private cd: ChangeDetectorRef, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public http: Http, private cd: ChangeDetectorRef, private alertCtrl: AlertController, private spinnerService: Ng4LoadingSpinnerService) {
 
     this.http
     .get("http://localhost:3000/featuredEvents")
@@ -99,6 +100,8 @@ export class DonatePage implements AfterViewInit, OnDestroy {
   }
 
   donate(){
+    this.spinnerService.show();
+
     this.http
     .post("http://localhost:3000/newDonation", {
             name: this.name,
@@ -116,6 +119,7 @@ export class DonatePage implements AfterViewInit, OnDestroy {
                 message: 'We appreciate your support FTK.',
                 buttons: ['Dismiss']
               });
+              this.spinnerService.hide()
               alert.present();
         },
         err => {

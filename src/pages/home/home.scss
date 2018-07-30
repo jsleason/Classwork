@@ -1,17 +1,4 @@
 page-home {
-    a.button{
-        -webkit-appearance: button;
-        -moz-appearance: button;
-        appearance: button;
-        
-        .home-container {
-            display: -webkit-flex;
-            -webkit-flex-direction: column;
-          }
-
-        text-decoration: none;
-        color: secondary;
-    }
     .set-right-justified{
         text-align:right;
         .button{
