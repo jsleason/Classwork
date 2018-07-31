@@ -1,13 +1,15 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Dance Marathon at the University of Michigan",
+  "short_name": "DMUM",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "assets/icon/favicon.ico",
+    "src": "assets/icon/logo_icon.ico",
     "sizes": "512x512",
     "type": "icon/jpg"
   }],
   "background_color": "#4e8ef7",
-  "theme_color": "#4e8ef7"
+  "theme_color": "#4e8ef7",
+
+    "gcm_sender_id": "103953800507"
 }

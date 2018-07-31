@@ -28,6 +28,18 @@ import { BucketingPage } from '../pages/bucketing/bucketing';
 import { CheckinPublicPage } from '../pages/checkinPublic/checkinpublic';
 import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
 
+import firebase from "firebase";
+const firebaseConfig = {
+  apiKey: "AIzaSyDgZW7KAtt4Wabv3Z-yIJ9K-0mjWyzp7Ts",
+  authDomain: "dmum-push-notifications.firebaseapp.com",
+  databaseURL: "https://dmum-push-notifications.firebaseio.com",
+  projectId: "dmum-push-notifications",
+  storageBucket: "dmum-push-notifications.appspot.com",
+  messagingSenderId: "69176283142"
+};
+firebase.initializeApp(firebaseConfig);
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -56,7 +68,7 @@ import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
     HttpModule,
     FormsModule,
     Ng4LoadingSpinnerModule
-    ],
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -77,7 +89,7 @@ import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
     BucketingPage,
     CheckinPublicPage,
     CheckinHomePage
-      ],
+  ],
   providers: [
     StatusBar,
     SplashScreen,
