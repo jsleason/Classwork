@@ -24,7 +24,13 @@
     <h1>Checkin</h1>
 
     <ion-list #DChekin>
-        <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+        <div *ngIf="submitAttempt" style="color: #ea6153;">
+                Please fill out all details accurately.
+            <hr>
+            If your uniqname was not found, check the spelling and capitalization of your input.
+            <hr>
+            You may not be registered for Dance Marathon. In that case, register or use the public checkin.
+        </div>
         <form [formGroup]="DCheckinForm">
 
             <ion-item>

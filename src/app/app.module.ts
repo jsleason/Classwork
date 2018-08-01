@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { AlertController } from 'ionic-angular';
 import { Ng4LoadingSpinnerModule } from 'ngx-loading-spinner';
 
 import { MyApp } from './app.component';
@@ -28,7 +27,7 @@ import { BucketingPage } from '../pages/bucketing/bucketing';
 import { CheckinPublicPage } from '../pages/checkinPublic/checkinpublic';
 import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
 
-import firebase from "firebase";
+import firebase from 'firebase';
 const firebaseConfig = {
   apiKey: "AIzaSyDgZW7KAtt4Wabv3Z-yIJ9K-0mjWyzp7Ts",
   authDomain: "dmum-push-notifications.firebaseapp.com",

@@ -74,7 +74,6 @@ export class CheckinPublicPage {
     publicCheckin() {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
-        this.submitAttempt = true;
 
         this.spinnerService.show();
 
@@ -96,6 +95,7 @@ export class CheckinPublicPage {
                     this.spinnerService.hide()
                 },
                 err => {
+                    this.submitAttempt = true;
                     this.spinnerService.hide()
                     console.log(err);
                 }

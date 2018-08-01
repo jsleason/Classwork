@@ -5,7 +5,6 @@ import { RegistrationPage } from '../registration/registration';
 import { Http } from '@angular/http';
 import { HomePage } from '../home/home';
 import { AlertController } from 'ionic-angular';
-import { OnInit } from '@angular/core';
 import { Ng4LoadingSpinnerService } from 'ngx-loading-spinner';
 import { CheckinHomePage } from '../checkinHome/checkinhome';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -43,6 +42,7 @@ export class CheckinPage {
     public event: Event;
     public eventId: number;
     public uniqname: any;
+    private shirt: string;
 
     posts: any;
     constructor(public navCtrl: NavController, public http: Http, private alertCtrl: AlertController,  private spinnerService: Ng4LoadingSpinnerService, public formBuilder: FormBuilder) {
@@ -87,7 +87,6 @@ export class CheckinPage {
     checkin() {
         // only allow checkin if an event has been selected
         // if so, call endpoint with specific event, navigate in the .subscribe
-        this.submitAttempt = true;
         this.spinnerService.show();
         this.http
             .get("http://localhost:3000/participantUniqname?uniqname=" + this.uniqname)
@@ -97,15 +96,17 @@ export class CheckinPage {
 
                     try {
                         response = result.json();
-
+                        console.log(response);
+                        this.shirt = response.tshirtsize;
                         if (response.success == false) {
                             throw new Error();
                         }
                     } catch (e) {
+                        this.submitAttempt = true;
                         this.spinnerService.hide();
                         let alert = this.alertCtrl.create({
                             title: 'Your uniqname was not found',
-                            message: 'Please check the spelling of your uniqname. If your uniqname is spelled coorectly, it is possible that you are not registered. Non registered participants need to register or use the public checkin.',
+                            message: 'Please check the uniqname field.',
                             buttons: ['Dismiss']
                         });
                         alert.present();
@@ -126,16 +127,21 @@ export class CheckinPage {
                                 this.navCtrl.push(ProfilePage, {
                                     eventnamedata: this.event.name,
                                     eventiddata: this.event.eventId,
-                                    namedata: this.name
-                                });
+                                    namedata: this.name,
+                                    shirtdata: this.shirt
+                                    
+                                });console.log(this.shirt)
                                 this.spinnerService.hide();
+                                this.submitAttempt = true;
                             },
                             err => {
+                                this.submitAttempt = true;
                                 console.log(err);
                             }
                         );
                 },
                 err => {
+                    this.submitAttempt = true;
                     this.spinnerService.hide();
                     console.log(err);
                 }

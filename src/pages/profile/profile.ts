@@ -38,11 +38,14 @@ export class ProfilePage {
   public info4: string;
   public info5: string;
 
+  public shirt: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, private alertCtrl: AlertController) {
     this.eventName = this.navParams.get("eventnamedata");
     this.name = this.navParams.get("namedata");
     this.eventid = this.navParams.get("eventiddata");
-    console.log(this.eventid);
+    this.shirt = this.navParams.get("shirtdata");
+    console.log(this.shirt);
 
     this.http
       .get(`http://localhost:3000/eventProfileId?eventId=${this.eventid}`)
