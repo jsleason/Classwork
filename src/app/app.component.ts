@@ -17,6 +17,19 @@ import { BucketingPage } from '../pages/bucketing/bucketing';
 import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
 import { AlertController } from 'ionic-angular';
 
+import { Firebase } from '@ionic-native/firebase';
+import firebase from 'firebase';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDgZW7KAtt4Wabv3Z-yIJ9K-0mjWyzp7Ts",
+  authDomain: "dmum-push-notifications.firebaseapp.com",
+  databaseURL: "https://dmum-push-notifications.firebaseio.com",
+  projectId: "dmum-push-notifications",
+  storageBucket: "dmum-push-notifications.appspot.com",
+  messagingSenderId: "69176283142"
+};
+firebase.initializeApp(firebaseConfig);
+
 @Component({
   templateUrl: 'app.html',
 })
@@ -25,13 +38,19 @@ export class MyApp {
 
   @ViewChild(Nav) navCtrl;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public modalCtrl: ModalController, private alertCtrl: AlertController) {
+  constructor(platform: Platform, 
+    statusBar: StatusBar, 
+    splashScreen: SplashScreen, 
+    public modalCtrl: ModalController, 
+    private alertCtrl: AlertController,
+    private firebase: Firebase) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
   }
 
   navigateToCheckin() {
@@ -110,3 +129,9 @@ export class MyApp {
 
 }
 
+// this.firebase.getToken()
+//   .then(token => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
+//   .catch(error => console.error('Error getting token', error));
+
+// this.firebase.onTokenRefresh()
+//   .subscribe((token: string) => console.log(`Got a new token ${token}`));
