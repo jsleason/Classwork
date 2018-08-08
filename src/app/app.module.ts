@@ -26,8 +26,8 @@ import { FundraisingPage } from '../pages/fundraising/fundraising';
 import { BucketingPage } from '../pages/bucketing/bucketing';
 import { CheckinPublicPage } from '../pages/checkinPublic/checkinpublic';
 import { CheckinHomePage } from '../pages/checkinHome/checkinhome';
+import { Firebase } from '@ionic-native/firebase';
 
-import firebase from 'firebase';
 const firebaseConfig = {
   apiKey: "AIzaSyDgZW7KAtt4Wabv3Z-yIJ9K-0mjWyzp7Ts",
   authDomain: "dmum-push-notifications.firebaseapp.com",
@@ -36,7 +36,7 @@ const firebaseConfig = {
   storageBucket: "dmum-push-notifications.appspot.com",
   messagingSenderId: "69176283142"
 };
-firebase.initializeApp(firebaseConfig);
+// Firebase.initializeApp(firebaseConfig);
 
 
 @NgModule({
